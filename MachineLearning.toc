@@ -1,0 +1,247 @@
+\contentsline {section}{차\nobreakspace {}례}{2}{section*.1}% 
+\contentsline {section}{\numberline {1}소개}{9}{section.0.1}% 
+\contentsline {subsection}{\numberline {1.1}기계 학습이란}{9}{subsection.0.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1}기계 학습의 정의}{9}{subsubsection.0.1.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.2}지식기반 방식에서 기계 학습으로의 대전환}{9}{subsubsection.0.1.1.2}% 
+\contentsline {subsubsection}{\numberline {1.1.3}기계 학습 개념}{9}{subsubsection.0.1.1.3}% 
+\contentsline {subsubsection}{\numberline {1.1.4}사람의 학습과 기계 학습}{9}{subsubsection.0.1.1.4}% 
+\contentsline {subsection}{\numberline {1.2}특징 공간에 대한 이해}{9}{subsection.0.1.2}% 
+\contentsline {subsubsection}{\numberline {1.2.1}1차원과 2차원 특징 공간}{9}{subsubsection.0.1.2.1}% 
+\contentsline {subsubsection}{\numberline {1.2.2}다차원 특징 공간}{9}{subsubsection.0.1.2.2}% 
+\contentsline {subsubsection}{\numberline {1.2.3}특징 공간 변환과 표현 학습}{9}{subsubsection.0.1.2.3}% 
+\contentsline {subsection}{\numberline {1.3}데이터에 대한 이해}{9}{subsection.0.1.3}% 
+\contentsline {subsubsection}{\numberline {1.3.1}데이터 생성 과정}{9}{subsubsection.0.1.3.1}% 
+\contentsline {subsubsection}{\numberline {1.3.2}데이터베이스의 중요성}{9}{subsubsection.0.1.3.2}% 
+\contentsline {subsubsection}{\numberline {1.3.3}데이터베이스 크기와 기계 학습 성능}{9}{subsubsection.0.1.3.3}% 
+\contentsline {subsubsection}{\numberline {1.3.4}데이터 가시화}{9}{subsubsection.0.1.3.4}% 
+\contentsline {subsection}{\numberline {1.4}간단한 기계 학습의 예}{9}{subsection.0.1.4}% 
+\contentsline {subsection}{\numberline {1.5}모델 선택}{9}{subsection.0.1.5}% 
+\contentsline {subsubsection}{\numberline {1.5.1}과소적합과 과잉적합}{9}{subsubsection.0.1.5.1}% 
+\contentsline {subsubsection}{\numberline {1.5.2}바이어스와 분산}{9}{subsubsection.0.1.5.2}% 
+\contentsline {subsubsection}{\numberline {1.5.3}검증집합과 교차검증을 이용한 모델 선택 알고리즘}{9}{subsubsection.0.1.5.3}% 
+\contentsline {subsubsection}{\numberline {1.5.4}모델 선택 한계와 현실적인 해결책}{9}{subsubsection.0.1.5.4}% 
+\contentsline {subsection}{\numberline {1.6}규제}{9}{subsection.0.1.6}% 
+\contentsline {subsubsection}{\numberline {1.6.1}데이터 확대}{9}{subsubsection.0.1.6.1}% 
+\contentsline {subsubsection}{\numberline {1.6.2}가중치 감쇄}{9}{subsubsection.0.1.6.2}% 
+\contentsline {subsection}{\numberline {1.7}기계 학습 유형}{9}{subsection.0.1.7}% 
+\contentsline {subsubsection}{\numberline {1.7.1}지도 방식에 따른 유형}{10}{subsubsection.0.1.7.1}% 
+\contentsline {subsubsection}{\numberline {1.7.2}다양한 기준에 따른 유형}{10}{subsubsection.0.1.7.2}% 
+\contentsline {subsection}{\numberline {1.8}기계 학습의 과거와 현재, 미래}{10}{subsection.0.1.8}% 
+\contentsline {subsubsection}{\numberline {1.8.1}인공지능과 기계 학습의 간략한 역사}{10}{subsubsection.0.1.8.1}% 
+\contentsline {subsubsection}{\numberline {1.8.2}기술 추세}{10}{subsubsection.0.1.8.2}% 
+\contentsline {subsubsection}{\numberline {1.8.3}사회적 전망}{10}{subsubsection.0.1.8.3}% 
+\contentsline {section}{\numberline {2}기계 학습과 수학}{11}{section.0.2}% 
+\contentsline {subsection}{\numberline {2.1}선형대수}{11}{subsection.0.2.1}% 
+\contentsline {subsubsection}{\numberline {2.1.1}벡터와 행렬}{11}{subsubsection.0.2.1.1}% 
+\contentsline {subsubsection}{\numberline {2.1.2}놈과 유사도}{11}{subsubsection.0.2.1.2}% 
+\contentsline {subsubsection}{\numberline {2.1.3}퍼셉트론의 해석}{11}{subsubsection.0.2.1.3}% 
+\contentsline {subsubsection}{\numberline {2.1.4}선형결합과 벡터공간}{11}{subsubsection.0.2.1.4}% 
+\contentsline {subsubsection}{\numberline {2.1.5}역행렬}{12}{subsubsection.0.2.1.5}% 
+\contentsline {subsubsection}{\numberline {2.1.6}행렬 분해}{12}{subsubsection.0.2.1.6}% 
+\contentsline {subsection}{\numberline {2.2}확률과 통계}{12}{subsection.0.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}확률 기초}{12}{subsubsection.0.2.2.1}% 
+\contentsline {subsubsection}{\numberline {2.2.2}베이즈 정리와 기계 학습}{12}{subsubsection.0.2.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.3}최대 우도}{12}{subsubsection.0.2.2.3}% 
+\contentsline {subsubsection}{\numberline {2.2.4}평균과 분산}{12}{subsubsection.0.2.2.4}% 
+\contentsline {subsubsection}{\numberline {2.2.5}유용한 확률분포}{13}{subsubsection.0.2.2.5}% 
+\contentsline {subsubsection}{\numberline {2.2.6}정보이론}{14}{subsubsection.0.2.2.6}% 
+\contentsline {subsection}{\numberline {2.3}최적화}{14}{subsection.0.2.3}% 
+\contentsline {subsubsection}{\numberline {2.3.1}매개변수 공간의 탐색}{14}{subsubsection.0.2.3.1}% 
+\contentsline {subsubsection}{\numberline {2.3.2}미분}{15}{subsubsection.0.2.3.2}% 
+\contentsline {subsubsection}{\numberline {2.3.3}경사 하강 알고리즘}{15}{subsubsection.0.2.3.3}% 
+\contentsline {section}{\numberline {3}다층 퍼셉트론}{16}{section.0.3}% 
+\contentsline {subsection}{\numberline {3.1}신경망 기초}{16}{subsection.0.3.1}% 
+\contentsline {subsubsection}{\numberline {3.1.1}인공신경망과 생물신경망}{16}{subsubsection.0.3.1.1}% 
+\contentsline {subsubsection}{\numberline {3.1.2}신경망의 간략한 역사}{16}{subsubsection.0.3.1.2}% 
+\contentsline {subsubsection}{\numberline {3.1.3}신경망의 종류}{16}{subsubsection.0.3.1.3}% 
+\contentsline {subsection}{\numberline {3.2}퍼셉트론}{16}{subsection.0.3.2}% 
+\contentsline {subsubsection}{\numberline {3.2.1}구조}{16}{subsubsection.0.3.2.1}% 
+\contentsline {subsubsection}{\numberline {3.2.2}동작}{16}{subsubsection.0.3.2.2}% 
+\contentsline {subsubsection}{\numberline {3.2.3}학습}{16}{subsubsection.0.3.2.3}% 
+\contentsline {subsection}{\numberline {3.3}다층 퍼셉트론}{16}{subsection.0.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.1}특징 공간 변환}{16}{subsubsection.0.3.3.1}% 
+\contentsline {subsubsection}{\numberline {3.3.2}활성함수}{16}{subsubsection.0.3.3.2}% 
+\contentsline {subsubsection}{\numberline {3.3.3}구조}{16}{subsubsection.0.3.3.3}% 
+\contentsline {subsubsection}{\numberline {3.3.4}동작}{17}{subsubsection.0.3.3.4}% 
+\contentsline {subsection}{\numberline {3.4}오류 역전파 알고리즘}{17}{subsection.0.3.4}% 
+\contentsline {subsubsection}{\numberline {3.4.1}목적함수의 정의}{18}{subsubsection.0.3.4.1}% 
+\contentsline {subsubsection}{\numberline {3.4.2}오류 역전파 알고리즘 설계}{19}{subsubsection.0.3.4.2}% 
+\contentsline {subsubsection}{\numberline {3.4.3}오류 역전파를 이용한 학습 알고리즘}{19}{subsubsection.0.3.4.3}% 
+\contentsline {subsection}{\numberline {3.5}미니배치 스토캐스틱 경사 하강법}{19}{subsection.0.3.5}% 
+\contentsline {subsection}{\numberline {3.6}다층 퍼셉트론에 의한 인식}{19}{subsection.0.3.6}% 
+\contentsline {subsection}{\numberline {3.7}다층 퍼셉트론의 특성}{19}{subsection.0.3.7}% 
+\contentsline {subsubsection}{\numberline {3.7.1}오류 역전파 알고리즘의 빠른 속도}{19}{subsubsection.0.3.7.1}% 
+\contentsline {subsubsection}{\numberline {3.7.2}모든 함수를 정확하게 근사할 수 있는 능력}{19}{subsubsection.0.3.7.2}% 
+\contentsline {subsubsection}{\numberline {3.7.3}성능 향상을 위한 휴리스틱의 중요성}{19}{subsubsection.0.3.7.3}% 
+\contentsline {section}{\numberline {4}딥러닝 기초}{20}{section.0.4}% 
+\contentsline {subsection}{\numberline {4.1}딥러닝의 등장}{20}{subsection.0.4.1}% 
+\contentsline {subsubsection}{\numberline {4.1.1}딥러닝의 기술 혁신 요인}{20}{subsubsection.0.4.1.1}% 
+\contentsline {subsubsection}{\numberline {4.1.2}특징 학습의 부각}{20}{subsubsection.0.4.1.2}% 
+\contentsline {subsection}{\numberline {4.2}깊은 다층 퍼셉트론}{20}{subsection.0.4.2}% 
+\contentsline {subsubsection}{\numberline {4.2.1}구조와 동작}{20}{subsubsection.0.4.2.1}% 
+\contentsline {subsubsection}{\numberline {4.2.2}학습}{20}{subsubsection.0.4.2.2}% 
+\contentsline {subsection}{\numberline {4.3}컨볼루션 신경망}{20}{subsection.0.4.3}% 
+\contentsline {subsubsection}{\numberline {4.3.1}컨볼루션층}{20}{subsubsection.0.4.3.1}% 
+\contentsline {subsubsection}{\numberline {4.3.2}폴링층}{21}{subsubsection.0.4.3.2}% 
+\contentsline {subsubsection}{\numberline {4.3.3}전체 구조}{21}{subsubsection.0.4.3.3}% 
+\contentsline {subsection}{\numberline {4.4}컨볼루션 신경망 사례연구}{21}{subsection.0.4.4}% 
+\contentsline {subsubsection}{\numberline {4.4.1}AlexNet}{21}{subsubsection.0.4.4.1}% 
+\contentsline {subsubsection}{\numberline {4.4.2}VGGNet}{21}{subsubsection.0.4.4.2}% 
+\contentsline {subsubsection}{\numberline {4.4.3}GoogLeNet}{21}{subsubsection.0.4.4.3}% 
+\contentsline {subsubsection}{\numberline {4.4.4}ResNet}{21}{subsubsection.0.4.4.4}% 
+\contentsline {subsection}{\numberline {4.5}생성 모델}{21}{subsection.0.4.5}% 
+\contentsline {subsubsection}{\numberline {4.5.1}생성 모델이란?}{21}{subsubsection.0.4.5.1}% 
+\contentsline {subsubsection}{\numberline {4.5.2}GAN}{21}{subsubsection.0.4.5.2}% 
+\contentsline {subsection}{\numberline {4.6}딥러닝은 왜 강력한가?}{21}{subsection.0.4.6}% 
+\contentsline {section}{\numberline {5}딥러닝 최적화}{22}{section.0.5}% 
+\contentsline {subsection}{\numberline {5.1}목적함수: 교차 엔트로피와 로그우도}{22}{subsection.0.5.1}% 
+\contentsline {subsubsection}{\numberline {5.1.1}평균제곱 오차를 다시 생각하기}{22}{subsubsection.0.5.1.1}% 
+\contentsline {subsubsection}{\numberline {5.1.2}교차 엔트로피 목적함수}{22}{subsubsection.0.5.1.2}% 
+\contentsline {subsubsection}{\numberline {5.1.3}softmax 활성함수와 로그우도 목적함수}{22}{subsubsection.0.5.1.3}% 
+\contentsline {subsection}{\numberline {5.2}성능 향상을 위한 요령}{22}{subsection.0.5.2}% 
+\contentsline {subsubsection}{\numberline {5.2.1}데이터 전처리}{22}{subsubsection.0.5.2.1}% 
+\contentsline {subsubsection}{\numberline {5.2.2}가중치 초기화}{22}{subsubsection.0.5.2.2}% 
+\contentsline {subsubsection}{\numberline {5.2.3}모멘텀}{22}{subsubsection.0.5.2.3}% 
+\contentsline {subsubsection}{\numberline {5.2.4}적응적 학습률}{22}{subsubsection.0.5.2.4}% 
+\contentsline {subsubsection}{\numberline {5.2.5}활성함수}{22}{subsubsection.0.5.2.5}% 
+\contentsline {subsubsection}{\numberline {5.2.6}배치 정규화}{22}{subsubsection.0.5.2.6}% 
+\contentsline {subsection}{\numberline {5.3}규제의 필요성과 원리}{22}{subsection.0.5.3}% 
+\contentsline {subsubsection}{\numberline {5.3.1}과잉적합에 빠지는 이유와 과잉적합을 피하는 전략}{22}{subsubsection.0.5.3.1}% 
+\contentsline {subsubsection}{\numberline {5.3.2}규제의 정의}{23}{subsubsection.0.5.3.2}% 
+\contentsline {subsection}{\numberline {5.4}규제 기법}{23}{subsection.0.5.4}% 
+\contentsline {subsubsection}{\numberline {5.4.1}가중치 벌칙}{23}{subsubsection.0.5.4.1}% 
+\contentsline {subsubsection}{\numberline {5.4.2}조기 멈춤}{23}{subsubsection.0.5.4.2}% 
+\contentsline {subsubsection}{\numberline {5.4.3}데이터 확대}{23}{subsubsection.0.5.4.3}% 
+\contentsline {subsubsection}{\numberline {5.4.4}드롭아웃}{23}{subsubsection.0.5.4.4}% 
+\contentsline {subsubsection}{\numberline {5.4.5}앙상블 기법}{23}{subsubsection.0.5.4.5}% 
+\contentsline {subsection}{\numberline {5.5}하이퍼 매개변수 최적화}{23}{subsection.0.5.5}% 
+\contentsline {subsubsection}{\numberline {5.5.1}격자 탐색과 임의 탐색}{23}{subsubsection.0.5.5.1}% 
+\contentsline {subsection}{\numberline {5.6}2차 미분을 이용한 최적화}{23}{subsection.0.5.6}% 
+\contentsline {subsubsection}{\numberline {5.6.1}뉴턴 방법}{23}{subsubsection.0.5.6.1}% 
+\contentsline {subsubsection}{\numberline {5.6.2}켤레 그레이디언트 방법}{23}{subsubsection.0.5.6.2}% 
+\contentsline {subsubsection}{\numberline {5.6.3}유사 뉴턴 방법}{23}{subsubsection.0.5.6.3}% 
+\contentsline {section}{\numberline {6}비지도 학습}{24}{section.0.6}% 
+\contentsline {subsection}{\numberline {6.1}지도 학습과 비지도 학습, 준지도 학습}{24}{subsection.0.6.1}% 
+\contentsline {subsection}{\numberline {6.2}비지도 학습}{24}{subsection.0.6.2}% 
+\contentsline {subsubsection}{\numberline {6.2.1}비지도 학습의 일반 과업}{24}{subsubsection.0.6.2.1}% 
+\contentsline {subsubsection}{\numberline {6.2.2}비지도 학습의 응용 과업}{24}{subsubsection.0.6.2.2}% 
+\contentsline {subsection}{\numberline {6.3}군집화}{24}{subsection.0.6.3}% 
+\contentsline {subsubsection}{\numberline {6.3.1}k-평균 알고리즘}{24}{subsubsection.0.6.3.1}% 
+\contentsline {subsubsection}{\numberline {6.3.2}친밀도 전파 알고리즘}{25}{subsubsection.0.6.3.2}% 
+\contentsline {subsection}{\numberline {6.4}밀도 추정}{25}{subsection.0.6.4}% 
+\contentsline {subsubsection}{\numberline {6.4.1}커널 밀도 추정}{25}{subsubsection.0.6.4.1}% 
+\contentsline {subsubsection}{\numberline {6.4.2}가우시안 혼합}{25}{subsubsection.0.6.4.2}% 
+\contentsline {subsubsection}{\numberline {6.4.3}EM 알고리즘}{25}{subsubsection.0.6.4.3}% 
+\contentsline {subsection}{\numberline {6.5}공간 변환의 이해}{25}{subsection.0.6.5}% 
+\contentsline {subsection}{\numberline {6.6}선형 인자 모델}{25}{subsection.0.6.6}% 
+\contentsline {subsubsection}{\numberline {6.6.1}주성분 분석}{26}{subsubsection.0.6.6.1}% 
+\contentsline {subsubsection}{\numberline {6.6.2}독립 성분 분석}{26}{subsubsection.0.6.6.2}% 
+\contentsline {subsubsection}{\numberline {6.6.3}희소 코딩}{26}{subsubsection.0.6.6.3}% 
+\contentsline {subsection}{\numberline {6.7}오토인코더}{26}{subsection.0.6.7}% 
+\contentsline {subsubsection}{\numberline {6.7.1}규제 오토인코더}{27}{subsubsection.0.6.7.1}% 
+\contentsline {subsubsection}{\numberline {6.7.2}적층 오토인코더}{27}{subsubsection.0.6.7.2}% 
+\contentsline {subsection}{\numberline {6.8}매니폴드 학습}{27}{subsection.0.6.8}% 
+\contentsline {subsubsection}{\numberline {6.8.1}매니폴드란?}{27}{subsubsection.0.6.8.1}% 
+\contentsline {subsubsection}{\numberline {6.8.2}IsoMap}{27}{subsubsection.0.6.8.2}% 
+\contentsline {subsubsection}{\numberline {6.8.3}LLE}{27}{subsubsection.0.6.8.3}% 
+\contentsline {subsubsection}{\numberline {6.8.4}t-SNE}{27}{subsubsection.0.6.8.4}% 
+\contentsline {subsubsection}{\numberline {6.8.5}귀납적 학습 모델과 트랜스덕티브 학습 모델}{27}{subsubsection.0.6.8.5}% 
+\contentsline {section}{\numberline {7}준지도 학습과 전이 학습}{28}{section.0.7}% 
+\contentsline {subsection}{\numberline {7.1}표현 학습의 중요성}{28}{subsection.0.7.1}% 
+\contentsline {subsubsection}{\numberline {7.1.1}표현 학습의 대두}{28}{subsubsection.0.7.1.1}% 
+\contentsline {subsubsection}{\numberline {7.1.2}매니폴드 관찰}{28}{subsubsection.0.7.1.2}% 
+\contentsline {subsubsection}{\numberline {7.1.3}프라이어를 이용한 변화 인자 풀어내기}{28}{subsubsection.0.7.1.3}% 
+\contentsline {subsection}{\numberline {7.2}내부 표현의 이해}{28}{subsection.0.7.2}% 
+\contentsline {subsubsection}{\numberline {7.2.1}컨볼루션 필터의 가시화}{28}{subsubsection.0.7.2.1}% 
+\contentsline {subsubsection}{\numberline {7.2.2}특징 맵의 가시화}{28}{subsubsection.0.7.2.2}% 
+\contentsline {subsubsection}{\numberline {7.2.3}영상공간으로 역투영}{28}{subsubsection.0.7.2.3}% 
+\contentsline {subsection}{\numberline {7.3}준지도 학습}{28}{subsection.0.7.3}% 
+\contentsline {subsubsection}{\numberline {7.3.1}동기와 원리}{28}{subsubsection.0.7.3.1}% 
+\contentsline {subsubsection}{\numberline {7.3.2}알고리즘}{28}{subsubsection.0.7.3.2}% 
+\contentsline {subsection}{\numberline {7.4}전이 학습}{29}{subsection.0.7.4}% 
+\contentsline {subsubsection}{\numberline {7.4.1}과업 전이}{29}{subsubsection.0.7.4.1}% 
+\contentsline {subsubsection}{\numberline {7.4.2}도메인 전이}{29}{subsubsection.0.7.4.2}% 
+\contentsline {section}{\numberline {8}순환 신경망}{30}{section.0.8}% 
+\contentsline {subsection}{\numberline {8.1}순차 데이터}{30}{subsection.0.8.1}% 
+\contentsline {subsubsection}{\numberline {8.1.1}순차 데이터의 표현}{30}{subsubsection.0.8.1.1}% 
+\contentsline {subsubsection}{\numberline {8.1.2}순차 데이터의 특성}{30}{subsubsection.0.8.1.2}% 
+\contentsline {subsection}{\numberline {8.2}순환 신경망}{30}{subsection.0.8.2}% 
+\contentsline {subsubsection}{\numberline {8.2.1}구조}{30}{subsubsection.0.8.2.1}% 
+\contentsline {subsubsection}{\numberline {8.2.2}동작}{30}{subsubsection.0.8.2.2}% 
+\contentsline {subsubsection}{\numberline {8.2.3}BPTT 학습}{30}{subsubsection.0.8.2.3}% 
+\contentsline {subsubsection}{\numberline {8.2.4}양방향 RNN}{31}{subsubsection.0.8.2.4}% 
+\contentsline {subsection}{\numberline {8.3}장기 문맥 의존성}{31}{subsection.0.8.3}% 
+\contentsline {subsection}{\numberline {8.4}LSTM}{31}{subsection.0.8.4}% 
+\contentsline {subsubsection}{\numberline {8.4.1}게이트를 이용한 영향력 범위 확장}{31}{subsubsection.0.8.4.1}% 
+\contentsline {subsubsection}{\numberline {8.4.2}LSTM의 동작}{31}{subsubsection.0.8.4.2}% 
+\contentsline {subsubsection}{\numberline {8.4.3}망각 게이트와 핍홀}{31}{subsubsection.0.8.4.3}% 
+\contentsline {subsection}{\numberline {8.5}응용 사례}{31}{subsection.0.8.5}% 
+\contentsline {subsubsection}{\numberline {8.5.1}언어 모델}{31}{subsubsection.0.8.5.1}% 
+\contentsline {subsubsection}{\numberline {8.5.2}기계 번역}{31}{subsubsection.0.8.5.2}% 
+\contentsline {subsubsection}{\numberline {8.5.3}영상 주석 생성}{31}{subsubsection.0.8.5.3}% 
+\contentsline {section}{\numberline {9}강화 학습}{32}{section.0.9}% 
+\contentsline {subsection}{\numberline {9.1}강화 학습의 원리와 성질}{32}{subsection.0.9.1}% 
+\contentsline {subsubsection}{\numberline {9.1.1}계산 모형}{32}{subsubsection.0.9.1.1}% 
+\contentsline {subsubsection}{\numberline {9.1.2}탐험과 탐사}{32}{subsubsection.0.9.1.2}% 
+\contentsline {subsubsection}{\numberline {9.1.3}마르코프 결정 프로세스}{32}{subsubsection.0.9.1.3}% 
+\contentsline {subsection}{\numberline {9.2}정책과 가치함수}{32}{subsection.0.9.2}% 
+\contentsline {subsubsection}{\numberline {9.2.1}정책}{32}{subsubsection.0.9.2.1}% 
+\contentsline {subsubsection}{\numberline {9.2.2}가치함수}{33}{subsubsection.0.9.2.2}% 
+\contentsline {subsubsection}{\numberline {9.2.3}최적 가치함수}{33}{subsubsection.0.9.2.3}% 
+\contentsline {subsection}{\numberline {9.3}동적 프로그래밍}{33}{subsection.0.9.3}% 
+\contentsline {subsubsection}{\numberline {9.3.1}정책 반복 알고리즘}{33}{subsubsection.0.9.3.1}% 
+\contentsline {subsubsection}{\numberline {9.3.2}가치 반복 알고리즘}{33}{subsubsection.0.9.3.2}% 
+\contentsline {subsection}{\numberline {9.4}몬테카를로 방법}{33}{subsection.0.9.4}% 
+\contentsline {subsubsection}{\numberline {9.4.1}훈련집합의 수집과 정책 평가}{33}{subsubsection.0.9.4.1}% 
+\contentsline {subsubsection}{\numberline {9.4.2}최적 정책 탐색}{34}{subsubsection.0.9.4.2}% 
+\contentsline {subsection}{\numberline {9.5}시간차 학습}{34}{subsection.0.9.5}% 
+\contentsline {subsubsection}{\numberline {9.5.1}정책 평가}{34}{subsubsection.0.9.5.1}% 
+\contentsline {subsubsection}{\numberline {9.5.2}Sarsa}{34}{subsubsection.0.9.5.2}% 
+\contentsline {subsubsection}{\numberline {9.5.3}Q-학습}{34}{subsubsection.0.9.5.3}% 
+\contentsline {subsection}{\numberline {9.6}근사 방법}{34}{subsection.0.9.6}% 
+\contentsline {subsection}{\numberline {9.7}응용 사례}{34}{subsection.0.9.7}% 
+\contentsline {subsubsection}{\numberline {9.7.1}TD-gammon}{34}{subsubsection.0.9.7.1}% 
+\contentsline {subsubsection}{\numberline {9.7.2}DQN: 아타리 비디오 게임}{34}{subsubsection.0.9.7.2}% 
+\contentsline {section}{\numberline {10}확률 그래피컬 모델}{35}{section.0.10}% 
+\contentsline {subsection}{\numberline {10.1}확률과 그래프의 만남}{35}{subsection.0.10.1}% 
+\contentsline {subsubsection}{\numberline {10.1.1}그래프 표현}{35}{subsubsection.0.10.1.1}% 
+\contentsline {subsubsection}{\numberline {10.1.2}그래프 분해와 확률 표현}{35}{subsubsection.0.10.1.2}% 
+\contentsline {subsection}{\numberline {10.2}베이지안 네트워크}{35}{subsection.0.10.2}% 
+\contentsline {subsubsection}{\numberline {10.2.1}간단한 예제}{35}{subsubsection.0.10.2.1}% 
+\contentsline {subsubsection}{\numberline {10.2.2}그래프 분해}{35}{subsubsection.0.10.2.2}% 
+\contentsline {subsubsection}{\numberline {10.2.3}d-분리}{35}{subsubsection.0.10.2.3}% 
+\contentsline {subsubsection}{\numberline {10.2.4}확률 추론}{35}{subsubsection.0.10.2.4}% 
+\contentsline {subsection}{\numberline {10.3}마르코프 랜덤필드}{35}{subsection.0.10.3}% 
+\contentsline {subsubsection}{\numberline {10.3.1}동작 원리}{35}{subsubsection.0.10.3.1}% 
+\contentsline {subsubsection}{\numberline {10.3.2}사례 연구: 영상 잡음 제거}{36}{subsubsection.0.10.3.2}% 
+\contentsline {subsection}{\numberline {10.4}RBM과 DBN}{36}{subsection.0.10.4}% 
+\contentsline {subsubsection}{\numberline {10.4.1}RBM의 구조와 원리}{36}{subsubsection.0.10.4.1}% 
+\contentsline {subsubsection}{\numberline {10.4.2}RBM 학습}{36}{subsubsection.0.10.4.2}% 
+\contentsline {subsubsection}{\numberline {10.4.3}DBN}{36}{subsubsection.0.10.4.3}% 
+\contentsline {section}{\numberline {11}커널 기법}{37}{section.0.11}% 
+\contentsline {subsection}{\numberline {11.1}커널 트릭}{37}{subsection.0.11.1}% 
+\contentsline {subsection}{\numberline {11.2}커널 리지 회귀}{37}{subsection.0.11.2}% 
+\contentsline {subsection}{\numberline {11.3}커널 PCA}{37}{subsection.0.11.3}% 
+\contentsline {subsection}{\numberline {11.4}SVM 분류}{37}{subsection.0.11.4}% 
+\contentsline {subsubsection}{\numberline {11.4.1}선형 SVM}{37}{subsubsection.0.11.4.1}% 
+\contentsline {subsubsection}{\numberline {11.4.2}비선형 SVM}{38}{subsubsection.0.11.4.2}% 
+\contentsline {subsubsection}{\numberline {11.4.3}c-부류 SVM}{38}{subsubsection.0.11.4.3}% 
+\contentsline {subsection}{\numberline {11.5}SVM 회귀}{38}{subsection.0.11.5}% 
+\contentsline {section}{\numberline {12}앙상블 방법}{39}{section.0.12}% 
+\contentsline {subsection}{\numberline {12.1}동기와 원리}{39}{subsection.0.12.1}% 
+\contentsline {subsubsection}{\numberline {12.1.1}앙상블을 사용하는 이유}{39}{subsubsection.0.12.1.1}% 
+\contentsline {subsubsection}{\numberline {12.1.2}요소 분류기의 다양성}{39}{subsubsection.0.12.1.2}% 
+\contentsline {subsection}{\numberline {12.2}재샘플링 기법}{39}{subsection.0.12.2}% 
+\contentsline {subsubsection}{\numberline {12.2.1}배깅}{39}{subsubsection.0.12.2.1}% 
+\contentsline {subsubsection}{\numberline {12.2.2}부스팅}{39}{subsubsection.0.12.2.2}% 
+\contentsline {subsection}{\numberline {12.3}결정 트리와 랜덤 포리스트}{39}{subsection.0.12.3}% 
+\contentsline {subsubsection}{\numberline {12.3.1}결정 트리}{39}{subsubsection.0.12.3.1}% 
+\contentsline {subsubsection}{\numberline {12.3.2}랜덤 포리스트}{39}{subsubsection.0.12.3.2}% 
+\contentsline {subsection}{\numberline {12.4}앙상블 결합}{39}{subsection.0.12.4}% 
+\contentsline {subsubsection}{\numberline {12.4.1}부류 레이블}{39}{subsubsection.0.12.4.1}% 
+\contentsline {subsubsection}{\numberline {12.4.2}부류 순위}{39}{subsubsection.0.12.4.2}% 
+\contentsline {subsubsection}{\numberline {12.4.3}부류 확률}{39}{subsubsection.0.12.4.3}% 
+\contentsline {subsection}{\numberline {12.5}딥러닝과 앙상블}{39}{subsection.0.12.5}% 
+\contentsline {subsubsection}{\numberline {12.5.1}평균 기법을 이용한 앙상블}{39}{subsubsection.0.12.5.1}% 
+\contentsline {subsubsection}{\numberline {12.5.2}암시적 앙상블}{39}{subsubsection.0.12.5.2}% 
+\contentsline {subsubsection}{\numberline {12.5.3}깊은 랜덤 포리스트}{40}{subsubsection.0.12.5.3}% 

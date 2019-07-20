@@ -1,0 +1,1454 @@
+\documentclass [12pt] {oblivoir}
+
+\usepackage{fapapersize}
+\usefapapersize{210mm,297mm,20mm,*,20mm,22mm}
+
+\setlength\parindent{0pt}
+
+\usepackage{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage{dsfont}
+
+\usepackage{hyperref}
+% \hypersetup{
+%     colorlinks=true, %set true if you want colored links
+%     linktoc=all,     %set to all if you want both sections and subsections linked
+% }
+
+\let\oldsubsubsection=\subsubsection
+\renewcommand{\subsubsection}
+{
+  \filbreak
+  \oldsubsubsection
+}
+
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+\title{Machine Learning}
+\author{GNU emacser}
+\date{}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+
+% Chapter 1
+\newpage
+\section{소개}
+
+\subsection{기계 학습이란}
+
+\subsubsection{기계 학습의 정의}
+
+\subsubsection{지식기반 방식에서 기계 학습으로의 대전환}
+
+\subsubsection{기계 학습 개념}
+
+\subsubsection{사람의 학습과 기계 학습}
+
+\subsection{특징 공간에 대한 이해}
+
+\subsubsection{1차원과 2차원 특징 공간}
+
+\subsubsection{다차원 특징 공간}
+
+\subsubsection{특징 공간 변환과 표현 학습}
+
+\subsection{데이터에 대한 이해}
+
+\subsubsection{데이터 생성 과정}
+
+\subsubsection{데이터베이스의 중요성}
+
+\subsubsection{데이터베이스 크기와 기계 학습 성능}
+
+\subsubsection{데이터 가시화}
+
+\subsection{간단한 기계 학습의 예}
+
+\subsection{모델 선택}
+
+\subsubsection{과소적합과 과잉적합}
+
+\subsubsection{바이어스와 분산}
+
+\subsubsection{검증집합과 교차검증을 이용한 모델 선택 알고리즘}
+
+\subsubsection{모델 선택 한계와 현실적인 해결책}
+
+\subsection{규제}
+
+\subsubsection{데이터 확대}
+
+\subsubsection{가중치 감쇄}
+
+\subsection{기계 학습 유형}
+
+\subsubsection{지도 방식에 따른 유형}
+
+\subsubsection{다양한 기준에 따른 유형}
+
+\subsection{기계 학습의 과거와 현재, 미래}
+
+\subsubsection{인공지능과 기계 학습의 간략한 역사}
+
+\subsubsection{기술 추세}
+
+\subsubsection{사회적 전망}
+
+% Chapter 2
+\newpage
+\section{기계 학습과 수학}
+
+\subsection{선형대수}
+
+\subsubsection{벡터와 행렬}
+
+\paragraph*{행렬 연산}\mbox{}
+
+\paragraph*{텐서}\mbox{}
+
+\subsubsection{놈과 유사도}
+
+\paragraph*{놈}\mbox{}
+
+벡터의 크기를 정의할 때는 놈을 사용한다. 2차 놈 $\lVert x \rVert_{2}$를 유클리디언 놈 또는 L2놈이라 하고, 첨자를 생략하고 $\lVert x \rVert$로 표기할 수도 있다.
+
+$p = \infty$일 때의 놈을 최대 놈이라 부르고, 식(2.4)로 정의한다.
+
+\begin{equation} \tag{2.3}
+  p\text{차 놈: } \lVert x \rVert_{p} = \left(\displaystyle\sum_{i=1,d}{\lvert x_{i} \rvert}^{p}\right)^{\frac{1}{p}}
+\end{equation}
+
+\begin{equation} \tag{2.4}
+  \lVert x \rVert_{\infty} = \max(\lvert x_{1} \rvert, \lvert x_{2} \rvert, \cdots, \lvert x_{d} \rvert)
+\end{equation}
+
+\begin{equation} \tag{2.5}
+  \text{단위 벡터: } \frac{x}{\lVert x \rVert}_{2}
+\end{equation}
+
+\begin{equation} \tag{2.6}
+  \text{프로베니우스 놈: } \lVert A \rVert_{F} = \left(\displaystyle\sum_{i=1,n}\sum_{j=1,m}a_{ij}^{2}\right)
+\end{equation}
+
+\paragraph*{유사도와 거리}\mbox{}
+
+\begin{equation} \tag{2.7}
+  cosine\_similarity(a, b) = \frac{a}{\lVert a \rVert} \cdot \frac{b}{\lVert b \rVert} = \cos(\theta)
+\end{equation}
+
+\subsubsection{퍼셉트론의 해석}
+
+\paragraph*{학습의 정의}\mbox{}
+
+\subsubsection{선형결합과 벡터공간}
+
+\paragraph*{선형결합이 만드는 벡터공간}\mbox{}
+
+\paragraph*{기계 학습의 공간 변환}\mbox{}
+
+\subsubsection{역행렬}
+
+\paragraph*{행렬식}\mbox{}
+
+\paragraph*{정부호 행렬}\mbox{}
+
+\subsubsection{행렬 분해}
+
+\paragraph*{고윳값과 고유 벡터}\mbox{}
+
+\paragraph*{고윳값 분해}\mbox{}
+
+\paragraph*{특잇값 분해}\mbox{}
+
+\subsection{확률과 통계}
+
+\subsubsection{확률 기초}
+
+\paragraph*{확률변수와 확률분포}\mbox{}
+
+\paragraph*{곱 규칙과 합 규칙}\mbox{}
+
+\subsubsection{베이즈 정리와 기계 학습}
+
+\paragraph*{베이즈 정리}\mbox{}
+
+\paragraph*{기계 학습에 적용}\mbox{}
+
+\subsubsection{최대 우도}
+
+\paragraph*{최대 우도법}\mbox{}
+
+\paragraph*{기계 학습에 적용}\mbox{}
+
+\subsubsection{평균과 분산}
+
+\paragraph*{평균 벡터와 공분산 행렬}\mbox{}
+
+\subsubsection{유용한 확률분포}
+
+\paragraph*{가우시안 분포}\mbox{}
+
+\vspace{3mm}
+\;가우시안 분포는 평균과 분산을 나타내는 2개의 매개변수 $\mu$와 $\sigma^{2}$으로 규정하며,
+식 (2.40)으로 정의한다. 정규분포라고도 하며 $\text{N}(x; \mu, \sigma^{2})$과 같이 표기한다. $\mu$에서 최대값을 가지고, $\sigma^{2}$는 분포의 퍼진 정도를 나타내는데,
+$\sigma^{2}$값이 클수록 봉우리의 높이가 낮고 좌우로 멀리 퍼진다. 자연에서 측정한 여러 가지 데이터가 가우시안 분포와 유사하다.
+
+\begin{equation} \tag{2.40}
+  \text{N}(x; \mu, \sigma^{2}) = \frac{1}{\sigma\sqrt{2\pi}}\left(-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^{2}\right)
+\end{equation}
+
+\vspace{3mm}
+\;특징 벡터가 $d$차원인 가우시안 분포는 평균 벡터 $\mu$와 공분산 행렬 $\boldsymbol{\Upsigma}$라는 매개변수로 모양이 규정된다. 식 (2.41)은 다차원 가우시안 분포이다.
+$|\boldsymbol{\Upsigma}|$은 $\boldsymbol{\Upsigma}$의 행렬식, 즉 $\text{det}(\boldsymbol{\Upsigma})$이다.
+
+\begin{equation} \tag{2.41}
+  \text{N}(x; \mu, \boldsymbol{\Upsigma^{2}}) = \frac{1}{\sqrt{|\boldsymbol{\Upsigma}|}\sqrt{(2\pi)^{d}}}\text{exp}(-\frac{1}{2}\left(\boldsymbol{\text{x}} - \boldsymbol{\mu})^{T}\boldsymbol{\Upsigma}^{-1}(\boldsymbol{\text{x} - \mu})\right)
+\end{equation}
+
+\paragraph*{베르누이 분포와 이항 분포}\mbox{}
+
+\subsubsection{정보이론}
+
+\paragraph*{자기 정보와 엔트로피}\mbox{}
+
+\paragraph*{교차 엔트로피와 KL 다이버전스}\mbox{}
+
+식 (2.47)은 $P$와 $Q$사이의 교차 엔트로피를 정의한다. 이때 두 확률분포는 같은 확률변수에 의해 정의되어 있어야 한다.
+
+\begin{equation} \tag{2.47}
+  H(P, Q) = -\sum_{x}P(x)\log_{2}Q(x) = -\sum_{i=1,k}P(e_{i})\log_{2}Q(e_{i})
+\end{equation}
+
+식 (2.47)의 유도
+
+\begin{align*}
+  H(P, Q) &= -\sum_{x}P(x)\log_{2}P(x) \\
+          &= -\sum_{x}P(x)\log_{2}P(x) + \sum_{x}P(x)\log_{2}P(x) - \sum{x}P(x)\log_{2}Q(x) \\
+          &= H(P) + \sum_{x}P(x)\log_{2}\frac{P(x)}{Q(x)}
+\end{align*}
+
+\begin{equation} \tag{2.48}
+  KL(P \Vert Q) = \sum_{x}P(x)log_{2}\frac{P(x)}{Q(x)}
+\end{equation}
+
+\begin{align} \tag{2.49}
+  P\text{와 } Q\text{의 교차 엔트로피 } H(P, Q)
+  &= H(P) + \sum_{x}\log_{2}\frac{P(x)}{Q(x)} \\
+  &= P\text{의 엔트로피 } + P\text{와 } Q\text{간의 } KL\text{다이버전스}
+\end{align}
+
+KL 다이버전스는 두 확률분포가 얼마나 다른지 측정한다. 거리 개념을 내포하지만 $KL(P \Vert Q) \neq KL(Q \Vert P)$ 이므로 엄밀한 수학적 정의에 따르면 거리가 아니다.
+
+\vspace{3mm}
+
+\subsection{최적화}
+
+\subsubsection{매개변수 공간의 탐색}
+
+\paragraph*{학습 모델의 매개변수 공간}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{최적화 문제해결}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{미분}
+
+\paragraph*{미분에 의한 최적화}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{편미분}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{독립변수와 종속변수의 구분}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{연쇄법칙}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{야코비안과 헤시안}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{테일러 급수}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{경사 하강 알고리즘}
+
+% Chapter 3
+\newpage
+\section{다층 퍼셉트론}
+
+\subsection{신경망 기초}
+
+\subsubsection{인공신경망과 생물신경망}
+
+\subsubsection{신경망의 간략한 역사}
+
+\subsubsection{신경망의 종류}
+
+\subsection{퍼셉트론}
+
+\subsubsection{구조}
+
+\subsubsection{동작}
+
+\paragraph*{행렬 표기}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{분류기로 해석}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{학습}
+
+\paragraph*{목적함수 설계와 델타 규칙 유도}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{학습 알고리즘}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{행렬 표기}\mbox{}
+
+\vspace{3mm}
+
+\subsection{다층 퍼셉트론}
+
+\subsubsection{특징 공간 변환}
+
+\paragraph*{다층 퍼셉트론의 용량}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{활성함수}
+
+\subsubsection{구조}
+
+\paragraph*{병렬분산 구조}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{동작}
+
+\paragraph*{은닉층은 특징 추출기}\mbox{}
+
+은닉층은 원래 특징 공간을 새로운 특징 공간으로 변환하는 특징 추출기로 볼 수 있다.
+
+계층적 방식은 앞 쪽에 있는 은닉층들이 추출한 저급 특징에서 뒤쪽에있는 은닉층들이 고급 특징을 추출하는 방식이다.
+
+\vspace{3mm}
+
+\subsection{오류 역전파 알고리즘}
+
+\subsubsection{목적함수의 정의}
+
+\;훈련집합이 $\mathds{X} = \{x_{1}, x_{2}, \cdots, x_{n}\}, \mathds{Y} = \{y_{1}, y_{2}, \cdots, y_{n}\}$ 이라 가정하면,
+$x_{i}$는 $i$번째 샘플의 특징 벡터이고 $y_{i}$는 소속 부류이다.
+소속 부류가 $j$번째이면 $y_{i} = (0, 0, \cdots, 1, 0, \cdots, 0)^{T}$ (j번째 요소만 1이고 나머지는 전부 0인 벡터) 이다.
+
+행렬을 사용하면 훈련집합 $\mathds{X}$와 $\mathds{Y}$를 식 (3.16)처럼 특징 벡터 행렬 $X$와 소속 부류 행렬 $Y$로 표기할 수 있다.
+$X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$는 특징 벡터의 차원, $c$는 부류의 개수이다.
+
+\begin{equation} \tag{3.16}
+  X =
+  \begin{pmatrix}
+    x^{T}_{1} \\
+    x^{T}_{2} \\
+    \vdots \\
+    x^{T}_{n}
+  \end{pmatrix},
+  \quad
+  Y =
+  \begin{pmatrix}
+    y^{T}_{1} \\
+    y^{T}_{2} \\
+    \vdots \\
+    y^{T}_{n}
+  \end{pmatrix}
+\end{equation}
+
+\vspace{3mm}
+기계 학습의 궁극적인 목적은 식 (3.17)과 같이 $X$를 완벽하게 $Y$로 매핑하는 최적의 함수 $F$를 알아내는 것이다.
+다시 말해 모든 샘플을 옳게 분류하는 분류기인 $f$를 찾아야 하지만, 완벽한 분류기는 불가능하므로 근사 최적해를 구한다.
+
+\begin{equation} \tag{3.17}
+\begin{rcases}
+  Y = f(X) \\
+  \text{풀어 쓰면}\quad y_{i} = f(x_{i}), i = 1, 2, \cdots, n
+\end{rcases}
+\end{equation}
+
+\vspace{3mm}
+식 (3.17)은 $f(X)$로 표기했지만 엄밀하게 표기하면 $f(X; \Uptheta)$와 같다. $f$가 $\Uptheta$로 매개변수화되어 있다는 사실을 드러내는 표기이다.
+2층 퍼셉트론에서는 $\Uptheta = \{U^{1}, U^{2}\}$이다.
+
+이제 기계 학습이 해야 할 일을 식 (3.18)과 같이 기술할 수 있다.
+
+\begin{equation} \tag {3.18}
+  \hat{\Uptheta} = \underset{\Uptheta}{\text{argmax}}||f(X; \Uptheta) - Y||_{2}^{2}
+\end{equation}
+
+\vspace{3mm}
+다시 말해, 기계 학습은 다층 퍼셉트론의 출력 $f(X; \Uptheta)$와 주어진 부류 정보 $Y$의 차이를 최소로 하는 최적의 매개변수 $\hat{\Uptheta}$을 찾아야 한다. 이 사실을 토대로 목적함수를 설계하면 식 (3.19)와 같다.
+
+\begin{equation} \tag{3.19}
+  \begin{rcases}
+    \text{온라인 모드:} \quad\qquad e = \displaystyle\frac{1}{2}||y - o||_{2}^{2} \\
+    \text{배치 모드:} \,\quad e =   \displaystyle\frac{1}{2n}\displaystyle\sum_{\mathclap{i=1}}^{n}||y_{i} - o_{i}||_{2}^{2}
+  \end{rcases}
+\end{equation}
+
+\vspace{3mm}
+평균제곱 오차는 주로 다층 퍼셉트론이 사용하는데, 딥러닝은 교차 엔트로피 또는 로그우도를 사용한다. 이 새로운 목적함수은 딥러닝의 성능 향상에 공헌하는 요인이다.
+
+\vspace{5mm}
+\subsubsection{오류 역전파 알고리즘 설계}
+
+식 (3.19)에 있는 온라인 모드의 수식을 매개변수 $\Uptheta$가 드러나도록 다시 쓰면 식 (3.20)이 된다.
+
+\begin{equation} \tag{3.20}
+  J(\Uptheta) = \frac{1}{2}||y - \boldsymbol{\text{o}}(\Uptheta)||_{2}^{2}
+\end{equation}
+
+\vspace{3mm}
+기계 학습 알고리즘은 식 (3.20)의 목적함숫값이 줄어드는 방향으로 $\Uptheta$, 즉 $\boldsymbol{\text{U}}^{1}$과 $\boldsymbol{\text{U}}^{2}$의 값을 수정해야 한다.
+경사 하강법 원리에 따르면 식 (3.21)이 성립한다. 이 식에서 $\rho$는 학습률이다. 온라인 모드와 배치 모드 중 선택해 사용할 수 있는데 온라인 모드에 대해 설명한다.
+\begin{equation} \tag{3.21}
+  \begin{rcases}
+    \boldsymbol{\text{U}}^{1} = \boldsymbol{\text{U}}^{1} - \displaystyle\rho\frac{\partial J}{\partial U^{1}} \\
+    \boldsymbol{\text{U}}^{2} = \boldsymbol{\text{U}}^{2} - \displaystyle\rho\frac{\partial J}{\partial U^{2}}
+  \end{rcases}
+\end{equation}
+
+\paragraph*{오류 역전파의 유도}\mbox{}
+
+\subsubsection{오류 역전파를 이용한 학습 알고리즘}
+
+\paragraph*{행렬 표기}\mbox{}
+
+\subsection{미니배치 스토캐스틱 경사 하강법}
+
+현대 기계 학습은 스토캐스틱과 배치의 중간에 해당하는 미니배치 방식을 주로 사용한다.
+미니배치에서는 $t$를 보통 수십~수백 정도의 크기로 설정한다.
+
+미니배치에서는 학습이 완료될 때까지 한번도 학습에 참여하지 않는 샘플이 있을 수 있지만, 성능에 해를 끼치지는 않는다.
+
+미니배치를 훈련집합을 모두 사용하도록 구현할 수도 있다.
+
+미니배치의 높은 무작위성은 일종의 규제 효과를 가져다주며, 결국 일반화 능력이 향상된다.
+
+\subsection{다층 퍼셉트론에 의한 인식}
+
+\subsection{다층 퍼셉트론의 특성}
+
+\subsubsection{오류 역전파 알고리즘의 빠른 속도}
+
+\subsubsection{모든 함수를 정확하게 근사할 수 있는 능력}
+
+\subsubsection{성능 향상을 위한 휴리스틱의 중요성}
+
+\paragraph*{실용적인 성능}\mbox{}
+
+\vspace{3mm}
+
+% Chapter 4
+\newpage
+\section{딥러닝 기초}
+
+\subsection{딥러닝의 등장}
+
+그레이디언트 소멸$^{\text{gradient\, vanishing}}$
+
+\subsubsection{딥러닝의 기술 혁신 요인}
+
+\subsubsection{특징 학습의 부각}
+
+수작업 특징$^{\text{hand-crafted\, feature}}$
+
+특징 학습$^{\text{feature\, learning}}$
+
+표현 학습$^{\text{representation\, learning}}$
+
+\subsection{깊은 다층 퍼셉트론}
+
+\subsubsection{구조와 동작}
+
+깊은 MLP$^{\text{DMLP(deep\, MLP)}}$
+
+\subsubsection{학습}
+
+\paragraph*{오류 역전파 알고리즘}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{역사적 고찰}\mbox{}
+
+\vspace{3mm}
+
+\subsection{컨볼루션 신경망}
+
+\subsubsection{컨볼루션층}
+
+\paragraph*{컨볼루션 연산}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{가중치 공유와 다중 특징 맵 추출}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{컨볼루션 연산에 따른 CNN의 특성}\mbox{}
+
+\vspace{3mm}
+
+컨볼루션은 이동에 동변$^{\text{translation\, equivariant}}$이다. 즉, 신호가 이동하면 이동 정보가 특징 맵에 그대로 반영된다. 수학적으로는 $\text{c}(\text{t}(x)) = \text{t}(\text{c}(x))$ (t : 이동 연산, c : 컨볼루션 연산)라 할 수 있다.
+
+\paragraph*{큰 보폭에 의한 다운샘플링}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{텐서에 적용}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{폴링층}
+
+\subsubsection{전체 구조}
+
+\paragraph*{빌딩블록}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{LeNet-5}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{가변 크기의 데이터 다루기}\mbox{}
+
+\vspace{3mm}
+
+\subsection{컨볼루션 신경망 사례연구}
+
+\subsubsection{AlexNet}
+
+\subsubsection{VGGNet}
+
+\subsubsection{GoogLeNet}
+
+\subsubsection{ResNet}
+
+\subsection{생성 모델}
+
+\subsubsection{생성 모델이란?}
+
+\subsubsection{GAN}
+
+\subsection{딥러닝은 왜 강력한가?}
+
+\paragraph*{전체 과정을 동시에 초기화}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{깊이의 중요성}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{계층적 특징}\mbox{}
+
+\vspace{3mm}
+
+% Chapter 5
+\newpage
+\section{딥러닝 최적화}
+
+\subsection{목적함수: 교차 엔트로피와 로그우도}
+
+\subsubsection{평균제곱 오차를 다시 생각하기}
+
+\subsubsection{교차 엔트로피 목적함수}
+
+\subsubsection{softmax 활성함수와 로그우도 목적함수}
+
+\subsection{성능 향상을 위한 요령}
+
+\subsubsection{데이터 전처리}
+
+정규화
+\begin{equation} \tag{5.9}
+  x_{i}^{new} = \frac{x_{i}^{old} - \mu_{i}}{\sigma_{i}}
+\end{equation}
+
+\subsubsection{가중치 초기화}
+
+\subsubsection{모멘텀}
+
+그레이언트에 스무딩을 가하면 수렴 속도를 개선할 수 있다.
+
+\begin{equation} \tag{3.21}
+  \begin{rcases}
+    \boldsymbol{v} = a\boldsymbol{v} - \rho\displaystyle\frac{\partial\mathcal{J}}{\partial\Uptheta} \\
+    \Uptheta = \Uptheta + \boldsymbol{v};
+  \end{rcases}
+\end{equation}
+
+
+\subsubsection{적응적 학습률}
+
+\paragraph*{AdaGrad}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{RMSProp}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{Adam}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{활성함수}
+
+\subsubsection{배치 정규화}
+
+\subsection{규제의 필요성과 원리}
+
+\subsubsection{과잉적합에 빠지는 이유와 과잉적합을 피하는 전략}
+
+\subsubsection{규제의 정의}
+
+\subsection{규제 기법}
+
+\subsubsection{가중치 벌칙}
+
+\paragraph*{L2 놈}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{선형 회귀에 적용}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{MLP와 DMLP에 적용}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{L1 놈}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{조기 멈춤}
+
+\subsubsection{데이터 확대}
+
+\subsubsection{드롭아웃}
+
+입력층에서 제거될 비율 $P_{input} = 0.2$, 은닉층에서 제거될 비율 $P_{hidden} = 0.5$로 설정하면 적절하다고 보고되어 있다.[Srivastava2014]
+
+\subsubsection{앙상블 기법}
+
+\subsection{하이퍼 매개변수 최적화}
+
+\subsubsection{격자 탐색과 임의 탐색}
+
+임의 탐색이 격자 탐색보다 훨씬 유리하다.
+
+\subsection{2차 미분을 이용한 최적화}
+
+\paragraph*{경사 하강법 다시 보기}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{뉴턴 방법}
+
+\subsubsection{켤레 그레이디언트 방법}
+
+\subsubsection{유사 뉴턴 방법}
+
+\paragraph*{기계 학습에서 2차 미분 정보의 활용}\mbox{}
+
+\vspace{3mm}
+
+% Chapter 6
+\newpage
+\section{비지도 학습}
+
+\subsection{지도 학습과 비지도 학습, 준지도 학습}
+
+\begin{itemize}
+  \item 매니폴드 가정: 데이터집합은 하나 또는 여러개의 매니폴드를 구성하며, 모든 샘플은 매니폴드와 가까운 곳에 있다.
+  \item 매끄러움 가정: 샘플은 어떤 요인에 의해 변한다. 이때 매끄러운 곡면을 따라서 변한다.
+\end{itemize}
+
+\paragraph*{비지도 학습에서 사전 지식의 중요성}\mbox{}
+
+\vspace{3mm}
+
+\subsection{비지도 학습}
+
+\subsubsection{비지도 학습의 일반 과업}
+
+\begin{itemize}
+  \item 군집화: 유사한 샘플을 모아 같은 그룹으로 묶는 일이다. 몇 개 군집으로 묶을지 알려저 있을수도 있고 아닐수도 있다.
+  \item 밀도 추정: 데이터로부터 확률 분포를 추정하는 일이다. 모수적 추정법과 비모수적 추정법으로 나뉜다.
+  \item 공간 변환: 데이터가 정의된 원래 특징 공간을 저차원 공간 또는 고차 원 공간으로 변환하는 일이다. 새로운 공간은 주어진 목적을 달성하는데 더 유리해야 한다.
+\end{itemize}
+
+\subsubsection{비지도 학습의 응용 과업}
+
+\subsection{군집화}
+
+\subsubsection{k-평균 알고리즘}
+
+\paragraph*{최적화 문제로 해석}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{다중 시작 k-평균 알고리즘}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{EM 기초}\mbox{}
+
+임시로 사용되다 사라지는 변수를 은닉 변수$^{\text{latent variable}}$ 라고 한다.
+
+\vspace{3mm}
+
+은닉변수의 추정과 매개변수 추정을 번갈아 수행하면서 최적의 해를 찾는 과정을 EM 알고리즘이라고 한다.
+
+\vspace{3mm}
+
+\subsubsection{친밀도 전파 알고리즘}
+
+친밀도 전파 알고리즘은 샘플 간의 유사도로부터 책임 행렬 $R$과 가용 행렬 $A$라는 두 종류의 친밀도 행렬을 계산하고, 이 친밀도 정보를 이용하여 군집을 찾는다.
+
+\subsection{밀도 추정}
+
+확률밀도함수 $P(X)$를 구하는 문제를 밀도 추정 문제라 한다.
+
+\subsubsection{커널 밀도 추정}
+
+\begin{equation} \tag{6.7}
+  P(x) = \frac{bin(x)}{n}
+\end{equation}
+
+식 (6.7)을 이용하여 확률밀도함수를 추정하는 방법을 히스토그램 방법이라고 한다.
+
+이 방법은 단순하여 이해하기 쉽지만 확률밀도함수가 매끄럽지 못하고 계단 모양을 띤다는 심각한 문제점이 있다.
+
+\vspace{3mm}
+
+식 (6.8)을 이용하면 이러한 문제점을 해결할 수 있다. 이 식을 사용하는 방법을 커널 밀도 추정법이라고 한다.
+
+\begin{equation} \tag{6.8}
+  \begin{rcases}
+    \displaystyle P_{h}(x) = \frac{1}{n}\sum_{i=1}^{n}K_{h}(x - x_{i}) = \frac{1}{nh^{d}}\sum_{i=1}^{n}K\left(\frac{x - x_{i}}{h}\right) \\
+    \text{여기서 } K_{h}(x) = \displaystyle\frac{1}{h^{d}}K\left(\frac{x}{h}\right)
+  \end{rcases}
+\end{equation}
+
+\subsubsection{가우시안 혼합}
+
+가우시안을 이용하는 방법은 몇 개의 매개변수로 확률분포를 정의하므로 모수적 방법이지만, 커널 밀도 추정법은 매개변수로 정의되는 일정한 모양의 함수를 사용하지 않으므로 비모수적 방법에 속한다.
+
+\subsubsection{EM 알고리즘}
+
+\subsection{공간 변환의 이해}
+
+\subsection{선형 인자 모델}
+
+\subsubsection{주성분 분석}
+
+주성분 분석$^{\text{PCA(principal component analysis)}}$은 데이터를 원점 중심으로 옮겨 놓는 일부터 시작한다.
+
+\begin{equation} \tag{6.19}
+  \begin{rcases}
+    x_{i} - \mu \\
+    이때 \mu = \frac{1}{n}\sum_{i=1}^{n}x_[i]
+  \end{rcases}
+\end{equation}
+
+식 (6.20)은 주성분 분석이 사용하는 변환식이다.
+
+\begin{equation} \tag{6.20}
+  \begin{rcases}
+    z = W^{T}x
+    \text{이때 } W = (u_{1} u_{2} \cdots u_{q}) \text{이고, } u_{j} = (u_{1j}, u_{2j}, \cdots, u_{dj})^{T}
+  \end{rcases}
+\end{equation}
+
+PCA에 의한 변환은 정보 손실을 일으키는데, 정보 손실이 적을수록 좋은 축이다.
+
+\paragraph*{학습 알고리즘}\mbox{}
+
+PCA의 목적을 정보 손실을 최소화하면서 저차원으로 변환하는 것으로 규정한다.
+기계 학습이 할 일은 훈련집합 $\mathds{X}$가 주어지면 정보 손실을 최소화하는 변환 행렬 $W$를 찾는 것이다.
+변환된 훈련집합 $\mathds{Z}$의 분산이 크면 클수록 정보 손실이 작다고 판단한다.
+
+\begin{verse}
+  \textcolor{teal}{문제 6.1} $\mathds{Z} = {z_{1}, z_{2}, \cdots, z_{n}}$의 분산을 최대화하는 $q$개의 축, 즉 $u_{1}, u_{2}, \cdots, u_{q}$를 찾아라. 이 단위 벡터는 식 (6.20)에 따라 변환 행렬 $W$를 구성한다.
+\end{verse}
+
+\vspace{3mm}
+
+\subsubsection{독립 성분 분석}
+
+\paragraph*{블라인드 원음 분리}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{독립성 가정}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{비가우시안 과정}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{ICA 학습}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{희소 코딩}
+
+\subsection{오토인코더}
+
+\paragraph*{동작 원리와 학습}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{규제 오토인코더}
+
+\paragraph*{SAE, DAE, CAE}\mbox{}
+
+\vspace{3mm}
+
+소금후추 잡음$^{\text{salt-and-pepper\, noise}}$
+
+\paragraph*{오토인코더가 알아내는 매니폴드}\mbox{}
+
+\subsubsection{적층 오토인코더}
+
+\paragraph*{층별 예비학습}\mbox{}
+
+층별 예비학습$^{\text{layer-wise\, pretraining}}$
+
+탐욕 알고리즘$^{\text{greedy\, algoritim}}$
+
+탐욕 층별 예비학습$^{\text{greedy\, layer-wise\, pretraining}}$
+
+\vspace{3mm}
+
+\paragraph*{확률 오토인코더}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{층별 예비학습이 딥러닝에 끼친 영향}\mbox{}
+
+\vspace{3mm}
+
+\subsection{매니폴드 학습}
+
+\subsubsection{매니폴드란?}
+
+\subsubsection{IsoMap}
+
+\subsubsection{LLE}
+
+\subsubsection{t-SNE}
+
+\subsubsection{귀납적 학습 모델과 트랜스덕티브 학습 모델}
+
+% Chapter 7
+\newpage
+\section{준지도 학습과 전이 학습}
+
+\subsection{표현 학습의 중요성}
+
+\subsubsection{표현 학습의 대두}
+
+\subsubsection{매니폴드 관찰}
+
+\subsubsection{프라이어를 이용한 변화 인자 풀어내기}
+
+\subsection{내부 표현의 이해}
+
+\subsubsection{컨볼루션 필터의 가시화}
+
+\subsubsection{특징 맵의 가시화}
+
+\subsubsection{영상공간으로 역투영}
+
+\paragraph*{최적화를 이용한 역투영}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{디컨볼루션을 이용한 역투영}\mbox{}
+
+\vspace{3mm}
+
+\subsection{준지도 학습}
+
+\subsubsection{동기와 원리}
+
+\paragraph*{레이블이 없는 데이터가 정말 도움이 되는가}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{사람도 준지도 학습을 하는가}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{알고리즘}
+
+\paragraph*{생성 모델}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{현대적 생성 모델}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{자가 학습}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{협동 학습}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{그래프 방법}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{표현 변환}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{밀집지역 회피}\mbox{}
+
+\vspace{3mm}
+
+\subsection{전이 학습}
+
+\subsubsection{과업 전이}
+
+\paragraph*{기성 CNN 특징}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{왜 작동할까?}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{도메인 전이}
+
+\paragraph*{도메인 적응}\mbox{}
+
+\vspace{3mm}
+
+% Chapter 8
+\newpage
+\section{순환 신경망}
+
+\subsection{순차 데이터}
+
+\subsubsection{순차 데이터의 표현}
+
+\paragraph*{텍스트 순차 데이터의 표현}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{순차 데이터의 특성}
+
+\subsection{순환 신경망}
+
+순차 데이터를 처리하는 신경망은 다음 세 가지 기능을 갖추어야 한다.
+
+\begin{itemize}
+  \item 시간성: 특징을 순서대로 한 번에 하나씩 입력해야 한다.
+  \item 가변 길이: 길이가 T인 샘플을 처리하려면 은닉층이 T번 나타나야 한다. T는 가변적이다.
+  \item 문맥 의존성: 이전 특징 내용을 기억하고 있다가 적절한 순간에 활용해야 한다.
+\end{itemize}
+
+\subsubsection{구조}
+
+RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존성의 세 가지 기능을 갖춘다.
+순환 에지는 t-1 순간에 발생한 정보를 t 순간으로 전달한다.
+
+\subsubsection{동작}
+
+\subsubsection{BPTT 학습}
+
+\paragraph*{RNN과 MLP의 유사성과 차별성}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{목적함수 정의}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{그레이디언트 계산}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{BPTT 알고리즘}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{양방향 RNN}
+
+\subsection{장기 문맥 의존성}
+
+\subsection{LSTM}
+
+\subsubsection{게이트를 이용한 영향력 범위 확장}
+
+\subsubsection{LSTM의 동작}
+
+\paragraph*{행렬 표기}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{망각 게이트와 핍홀}
+
+\subsection{응용 사례}
+
+\subsubsection{언어 모델}
+
+\paragraph*{n-그램}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{전방 신경망 모델}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{순환 신경망 모델}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{생성 모델로 활용}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{기계 번역}
+
+\subsubsection{영상 주석 생성}
+
+% Chapter 9
+\newpage
+\section{강화 학습}
+
+\subsection{강화 학습의 원리와 성질}
+
+\paragraph*{상태, 행동, 보상}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{에이전트와 환경}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{정책}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{계산 모형}
+
+\subsubsection{탐험과 탐사}
+
+\subsubsection{마르코프 결정 프로세스}
+
+\paragraph*{마르코프 성질}\mbox{}
+
+스토캐스틱 프로세스에서 미래 상태의 조건부 확률 분포가 선행되었던 이벤트의 시퀀스와는 상관없이, 오직 현재의 상태에 의존하면, 해당 프로세스는 마르코프 성질$^{\text{Markov property}}$을 만족한다고 할 수 있다.
+
+마르코프 성질을 수학 공식으로 표현하면 다음과 같다.
+
+\begin{equation} \tag{9.2}
+  P(s_{t+1}, r_{t+1} \mid s_{0}, a_{0}, r_{1}, s_{1}, a_{1}, \cdots, r_{t-1}, s_{t-1}, a_{t-1}, r_{t}, s_{t}, a_{t}) = P(s_{t+1}, r_{t+1} \mid s_{t}, a_{t})
+\end{equation}
+
+표기를 간단히 하면 다음과 같다.
+
+\begin{equation} \tag{9.3}
+  P(s_{t+1}, r_{t+1} \mid s_{t}, a_{t}) = P(s^{'}, r \mid s, a)
+\end{equation}
+
+\vspace{3mm}
+
+\paragraph*{환경 모델로서 MDP}\mbox{}
+
+\begin{equation} \tag{9.4}
+  \text{MDP 확률분포: } P(s^{'},r \mid s, a), \forall \in \mathcal{S}, \forall a \in \mathcal{A}, \forall s^{'} \in \mathcal{S}, \forall \in \mathcal{R}
+\end{equation}
+
+식 (9.4)를 MDP의 확률분포라고 한다. 이 확률분포는 Markov property를 만족한다.
+
+\vspace{3mm}
+
+\subsection{정책과 가치함수}
+
+\subsubsection{정책}
+
+\paragraph*{최적 정책}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{최적 정책 찾기}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{가치함수}
+
+\paragraph*{에피소드 과업과 영구 과업}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{가치함수 추정을 위한 순환식}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{스토캐스틱 프로세스에서 가치함수 추정}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{최적 가치함수}
+
+\subsection{동적 프로그래밍}
+
+\paragraph*{스토캐스틱 동적 프로그래밍}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{정책 반복 알고리즘}
+
+\subsubsection{가치 반복 알고리즘}
+
+\subsection{몬테카를로 방법}
+
+\subsubsection{훈련집합의 수집과 정책 평가}
+
+\paragraph*{정책 평가}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{최적 정책 탐색}
+
+\paragraph*{탐험과 탐사 조절}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{탐험형 시작}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{$\boldsymbol{\mathrm{\varepsilon}}$-소프트}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{몬테카를로 방법의 특성}\mbox{}
+
+몬테카를로 방법의 특징
+\begin{itemize}
+  \item 환경 모델이 없어도 된다.
+  \item 부트스트랩 방식이 아니므로 관심 있는 상태로만 구성된 부분집합에 국한하여 최적 가치와 최적 정책을 추정할 수 있다.
+  \item 마르코프 성질에서 크게 벗어나는 상황에서도 성능 저하가 비교적 적다.
+\end{itemize}
+
+\vspace{3mm}
+
+\subsection{시간차 학습}
+
+\subsubsection{정책 평가}
+
+\paragraph*{정책 평가}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{Sarsa}
+
+\subsubsection{Q-학습}
+
+\subsection{근사 방법}
+
+\subsection{응용 사례}
+
+\subsubsection{TD-gammon}
+
+\paragraph*{강화 학습과 보드게임}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{DQN: 아타리 비디오 게임}
+
+% Chapter 10
+\newpage
+\section{확률 그래피컬 모델}
+
+\subsection{확률과 그래프의 만남}
+
+\subsubsection{그래프 표현}
+
+\subsubsection{그래프 분해와 확률 표현}
+
+\subsection{베이지안 네트워크}
+
+\paragraph*{세 가지 주요 문제}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{간단한 예제}
+
+\subsubsection{그래프 분해}
+
+\subsubsection{d-분리}
+
+\paragraph*{조건부 독립}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{체인의 폐쇄}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{d-분리}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{확률 추론}
+
+\paragraph*{d-분리와 확률 추론}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{정확한 해 구하기}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{근사 추론}\mbox{}
+
+\vspace{3mm}
+
+\subsection{마르코프 랜덤필드}
+
+\subsubsection{동작 원리}
+
+모든 노드 쌍이 에지를 가지는 완전 부분그래프를 클릭$^{\text{clique}}$이라고 한다. 노드를 추가하면 완전 그래프를 유지하지 못하는 클릭을 극대 클릭$^{\text{maximal clique}}$이라고 한다.
+
+\vspace{3mm}
+같은 종류의 노드 사이에는 에지를 허용하지 않는 구조를 제한 볼츠만 기계$^{\text{RBM}}$ 라고 부른다.
+
+DBN$^\text{deep belief network}$
+
+\subsubsection{사례 연구: 영상 잡음 제거}
+
+\paragraph*{에너지함수 공식화}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{최적화 알고리즘}\mbox{}
+
+\vspace{3mm}
+
+\subsection{RBM과 DBN}
+
+\subsubsection{RBM의 구조와 원리}
+
+\paragraph*{RBM 구조}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{에너지와 확률분포}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{RBM 학습}
+
+\paragraph*{목적함수}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{대조 발산 알고리즘}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{RBM의 응용}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{DBN}
+
+\paragraph*{RBM 쌓기}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{DBN의 응용}\mbox{}
+
+\vspace{3mm}
+
+% Chapter 11
+\newpage
+\section{커널 기법}
+
+\subsection{커널 트릭}
+
+\paragraph*{커널함수와 커널 트릭}\mbox{}
+\vspace{3mm}
+
+\begin{mdframed}
+  \textcolor{teal}{정의 11 - 1} \textbf{커널함수} \\
+  원래 특징 공간
+  $\mathcal{L}$에 정의된 두 특징 벡터 $x$와 $z$에 대해 $K(x, z) = \Upphi(x) \cdot \Upphi(z)$
+  인 변환함수 $\Upphi$가 존재하면 $K(x, z)$를 커널함수라 부른다.
+\end{mdframed}
+
+\paragraph*{널리 쓰이는 세 가지 커널함수}\mbox{}
+
+\begin{equation} \tag{11.6}
+  \text{다항식 커널: } K(x, z) = (x \cdot z + 1)^{p}
+\end{equation}
+
+\begin{equation} \tag{11.7}
+  \text{RBF 커널: } K(x, z) = exp\left(\frac{-\lVert x - z \rVert^{2}_{2}}{2 \sigma^{2}}\right)
+\end{equation}
+
+\begin{equation} \tag{11.8}
+  \text{하이퍼볼릭 탄젠트 커널: } K(x, z) = \tanh(ax \cdot z + \beta)
+\end{equation}
+
+\vspace{3mm}
+
+\subsection{커널 리지 회귀}
+
+\paragraph*{쌍대 문제로 변환}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{메모리 기반 예측}\mbox{}
+
+\vspace{3mm}
+
+\subsection{커널 PCA}
+
+\subsection{SVM 분류}
+
+\paragraph*{여백을 이용한 일반화 능력 향상}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{선형 SVM}
+
+\paragraph*{결정 초평면의 수학적 특성}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{선형 분리 가능한 상황}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{소프트 여백: 선형 분리가 불가능한 상황}\mbox{}
+
+분할 띠 안에 샘플을 허용하는 아이디어를 소프트 여백$^{\text{soft margin}}$ 이라고 한다.
+
+\vspace{3mm}
+
+\subsubsection{비선형 SVM}
+
+\paragraph*{학습 알고리즘 구현}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{예측 알고리즘}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{오픈 소스와 활용 가이드라인}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{c-부류 SVM}
+
+\subsection{SVM 회귀}
+
+% Chapter 12
+\newpage
+\section{앙상블 방법}
+
+\subsection{동기와 원리}
+
+\subsubsection{앙상블을 사용하는 이유}
+
+\subsubsection{요소 분류기의 다양성}
+
+\subsection{재샘플링 기법}
+
+\subsubsection{배깅}
+
+배깅은 부트스트랩 아이디어를 앙상블 생성에 적용한 알고리즘이다.
+
+\subsubsection{부스팅}
+
+\subsection{결정 트리와 랜덤 포리스트}
+
+\subsubsection{결정 트리}
+
+\paragraph*{노드에서의 질문}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{학습 알고리즘}\mbox{}
+
+\vspace{3mm}
+
+\paragraph*{예측 알고리즘}\mbox{}
+
+\vspace{3mm}
+
+\subsubsection{랜덤 포리스트}
+
+\subsection{앙상블 결합}
+
+\subsubsection{부류 레이블}
+
+\subsubsection{부류 순위}
+
+\subsubsection{부류 확률}
+
+\subsection{딥러닝과 앙상블}
+
+\subsubsection{평균 기법을 이용한 앙상블}
+
+\subsubsection{암시적 앙상블}
+
+\subsubsection{깊은 랜덤 포리스트}
+
+결정 트리의 학습 알고리즘은 greedy algorithm이므로 지역 최적점을 찾는다. 이러한 한계를 극복하는 전역 최적화 기법이 몇 가지 개발되어 있다.
+
+\vspace{3mm}
+랜덤 포리스트와 CNN을 상호 변환하는 알고리즘이 있다[Richmond2015].
+
+\end{document}

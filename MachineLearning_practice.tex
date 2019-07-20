@@ -1,0 +1,53 @@
+\documentclass [12pt] {oblivoir}
+
+\usepackage{fapapersize}
+\usefapapersize{210mm,297mm,20mm,*,20mm,22mm}
+
+\setlength\parindent{0pt}
+
+\usepackage{helvet}
+\renewcommand\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\usepackage{dsfont}
+
+\usepackage{hyperref}
+% \hypersetup{
+%     colorlinks=true, %set true if you want colored links
+%     linktoc=all,     %set to all if you want both sections and subsections linked
+% }
+
+\let\oldsubsubsection=\subsubsection
+\renewcommand{\subsubsection}
+{
+  \filbreak
+  \oldsubsubsection
+}
+
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+\title{Machine Learning}
+\author{GNU emacser}
+\date{}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{4}
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+
+\section {Chapter 05 딥러닝 최적화}
+
+\textbf{\textcolor{gray}{1}} 신경망의 출력이 $(0.4, 2.0, 0.001, 0.32)^{T}일 때 softmax를 적용한 결과를 쓰시오.
+
+
+
+\end{document}
