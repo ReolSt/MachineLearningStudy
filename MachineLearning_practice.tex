@@ -24,12 +24,14 @@
 \let\oldsubsubsection=\subsubsection
 \renewcommand{\subsubsection}
 {
-  \filbreak
-  \oldsubsubsection
+\filbreak
+\oldsubsubsection
 }
 
 \usepackage{xcolor}
 \usepackage{mdframed}
+
+\usepackage{listings}
 
 \title{Machine Learning}
 \author{GNU emacser}
@@ -46,8 +48,57 @@
 
 \section {Chapter 05 딥러닝 최적화}
 
-\textbf{\textcolor{gray}{1}} 신경망의 출력이 $(0.4, 2.0, 0.001, 0.32)^{T}일 때 softmax를 적용한 결과를 쓰시오.
+\textbf{\textcolor{gray}{1}} 신경망의 출력이 $(0.4, 2.0, 0.001, 0.32)^{T}$일 때 softmax를 적용한 결과를 쓰시오.
 
+\begin{equation*}
+  \begin{pmatrix}
+    0.13250 \\
+    0.65628\\
+    0.08891\\
+    0.12231 \\
+  \end{pmatrix}
+\end{equation*}
 
+\textbf{\textcolor{gray}{2}} softmax를 적용한 후 출력이 $(0.001, 0.9, 0.001, 0.098)^{T}$이고 레이블 정보가 $(0, 0, 0, 1)^{T}$일 때, 세 가지 목적함수 평균 제곱 오차, 교차 엔트로피, 로그우도를 계산하시
+오.
+
+\begin{center}
+MSE result
+
+\vspace{2mm}
+0.811803
+
+\vspace{5mm}
+Cross Entropy result
+
+\vspace{2mm}
+6.675889369173579
+
+\vspace{5mm}
+Log Likelihood result
+
+\vspace{2mm}
+3.3510744405468786
+\end{center}
+
+\textbf{\textcolor{gray}{3}} [예제 5-1]에서 $\lambda = 0.1, \lambda = 0.5$일 때를 계산하고 $\lambda$에 따른 효과를 설명하시오. 이때 [그림 5-21]을 활용하시오.
+
+\begin{equation*}
+  \lambda = 0.25
+  \begin{pmatrix}
+    1.49159 \\
+    1.36074
+  \end{pmatrix}
+  \lambda = 0.1
+  \begin{pmatrix}
+    1.61538 \\
+    1.27884
+  \end{pmatrix}
+  \lambda = 0.5
+  \begin{pmatrix}
+    1.4 \\
+    1.4
+  \end{pmatrix}
+\end{equation*}
 
 \end{document}
