@@ -14,6 +14,12 @@
 \usepackage{amsmath}
 \usepackage{upgreek}
 \usepackage{dsfont}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage[bbgreekl]{mathbbol}
+\DeclareSymbolFontAlphabet{\mathbb}{AMSb}
+\DeclareSymbolFontAlphabet{\mathbbl}{bbold}
 
 \usepackage{hyperref}
 % \hypersetup{
@@ -30,6 +36,7 @@
 
 \usepackage{xcolor}
 \usepackage{mdframed}
+\usepackage{extarrows}
 
 \title{Machine Learning}
 \author{GNU emacser}
@@ -212,11 +219,11 @@ $\sigma^{2}$값이 클수록 봉우리의 높이가 낮고 좌우로 멀리 퍼�
 \end{equation}
 
 \vspace{3mm}
-\;특징 벡터가 $d$차원인 가우시안 분포는 평균 벡터 $\mu$와 공분산 행렬 $\boldsymbol{\Upsigma}$라는 매개변수로 모양이 규정된다. 식 (2.41)은 다차원 가우시안 분포이다.
-$|\boldsymbol{\Upsigma}|$은 $\boldsymbol{\Upsigma}$의 행렬식, 즉 $\text{det}(\boldsymbol{\Upsigma})$이다.
+\;특징 벡터가 $d$차원인 가우시안 분포는 평균 벡터 $\mu$와 공분산 행렬 $\mathbf{\Upsigma}$라는 매개변수로 모양이 규정된다. 식 (2.41)은 다차원 가우시안 분포이다.
+$|\mathbf{\Upsigma}|$은 $\mathbf{\Upsigma}$의 행렬식, 즉 $\text{det}(\mathbf{\Upsigma})$이다.
 
 \begin{equation} \tag{2.41}
-  \text{N}(x; \mu, \boldsymbol{\Upsigma^{2}}) = \frac{1}{\sqrt{|\boldsymbol{\Upsigma}|}\sqrt{(2\pi)^{d}}}\text{exp}(-\frac{1}{2}\left(\boldsymbol{\text{x}} - \boldsymbol{\mu})^{T}\boldsymbol{\Upsigma}^{-1}(\boldsymbol{\text{x} - \mu})\right)
+  \text{N}(x; \mu, \mathbf{\Upsigma^{2}}) = \frac{1}{\sqrt{|\mathbf{\Upsigma}|}\sqrt{(2\pi)^{d}}}\text{exp}(-\frac{1}{2}\left(\mathbf{\text{x}} - \mathbf{\mu})^{T}\mathbf{\Upsigma}^{-1}(\mathbf{\text{x} - \mu})\right)
 \end{equation}
 
 \paragraph*{베르누이 분포와 이항 분포}\mbox{}
@@ -430,20 +437,36 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 식 (3.19)에 있는 온라인 모드의 수식을 매개변수 $\Uptheta$가 드러나도록 다시 쓰면 식 (3.20)이 된다.
 
 \begin{equation} \tag{3.20}
-  J(\Uptheta) = \frac{1}{2}||y - \boldsymbol{\text{o}}(\Uptheta)||_{2}^{2}
+  J(\Uptheta) = \frac{1}{2}||y - \mathbf{\text{o}}(\Uptheta)||_{2}^{2}
 \end{equation}
 
 \vspace{3mm}
-기계 학습 알고리즘은 식 (3.20)의 목적함숫값이 줄어드는 방향으로 $\Uptheta$, 즉 $\boldsymbol{\text{U}}^{1}$과 $\boldsymbol{\text{U}}^{2}$의 값을 수정해야 한다.
+기계 학습 알고리즘은 식 (3.20)의 목적함숫값이 줄어드는 방향으로 $\Uptheta$, 즉 $\mathbf{\text{U}}^{1}$과 $\mathbf{\text{U}}^{2}$의 값을 수정해야 한다.
 경사 하강법 원리에 따르면 식 (3.21)이 성립한다. 이 식에서 $\rho$는 학습률이다. 온라인 모드와 배치 모드 중 선택해 사용할 수 있는데 온라인 모드에 대해 설명한다.
 \begin{equation} \tag{3.21}
   \begin{rcases}
-    \boldsymbol{\text{U}}^{1} = \boldsymbol{\text{U}}^{1} - \displaystyle\rho\frac{\partial J}{\partial U^{1}} \\
-    \boldsymbol{\text{U}}^{2} = \boldsymbol{\text{U}}^{2} - \displaystyle\rho\frac{\partial J}{\partial U^{2}}
+    \mathbf{\text{U}}^{1} = \mathbf{\text{U}}^{1} - \displaystyle\rho\frac{\partial J}{\partial U^{1}} \\
+    \mathbf{\text{U}}^{2} = \mathbf{\text{U}}^{2} - \displaystyle\rho\frac{\partial J}{\partial U^{2}}
   \end{rcases}
 \end{equation}
 
 \paragraph*{오류 역전파의 유도}\mbox{}
+
+\begin{equation} \tag{3.22}
+  \delta_{k} = (y_{k} - o_{k})\uptau^{'}(osum_{k}), \qquad 1 \le k \le c
+\end{equation}
+
+\begin{equation} \tag{3.23}
+  \frac{\partial J}{\partial u_{kj}^{2}} = -\delta_{k}z_{j}, \qquad 0 \le j \le p, 1 \le k \le c
+\end{equation}
+
+\begin{equation} \tag{3.24}
+  \upeta_{j} = \uptau^{'}(zsum_{j})\sum_{q=1}^{c}\delta_{qu_{qj}}^{2}, \qquad 1 \le j \le p
+\end{equation}
+
+\begin{equation} \tag{3.25}
+  \frac{\partial J}{\partial u_{ji}^{1}} = \Delta u_{ji}^{1} = -\upeta_{j}x_{i}, \qquad 0 \le i \le d, 1 \le j \le p
+\end{equation}
 
 \subsubsection{오류 역전파를 이용한 학습 알고리즘}
 
@@ -498,10 +521,31 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 
 깊은 MLP$^{\text{DMLP(deep\, MLP)}}$
 
+\begin{equation} \tag{4.5}
+  l\text{번째 층의 연산: } \mathbf{z}^{l} = \boldsymbol{\uptau}_{l}(\mathbf{U}^{l}\mathbf{z}^{l-1}), 1 \le l \le L
+\end{equation}
+
 \subsubsection{학습}
 
 \paragraph*{오류 역전파 알고리즘}\mbox{}
+$L$번째 층(출력층)을 위한 gradient 계산식
+\begin{equation} \tag{4.6}
+  \delta_{k}^{L} = \uptau_{L}^{'}(s_{k}^{L})(y_{k} - o_{k}), \qquad 1 \le k \le c
+\end{equation}
 
+\begin{equation} \tag{4.7}
+  \frac{\partial J}{\partial u_{kr}{L}} = -\delta_{k}^{L}z_{r}^{L-1}, \qquad 0 \le r \le n_{L-1}, \; 1\le k \le c
+\end{equation}
+
+$l + 1$층의 정보를 이용하여 $l$층의 gradient를 계산하는 공식
+
+\begin{equation} \tag{4.8}
+  \delta_{j}^{l} = \uptau_{l}^{'}(s_{j}^{l})\sum_{p=1}^{n_{l+1}}\delta_{p}^{l+1}u_{pj}^{l+1}, \qquad 1 \le j \le n_{l}
+\end{equation}
+
+\begin{equation} \tag{4.9}
+  \frac{\partial J}{\partial u_{ji}{l}} = -\delta_{j}^{l}z_{i}^{l-1}, \qquad 0 \le i \le n_{l-1}, \; 1\le j \le n_{l}
+\end{equation}
 \vspace{3mm}
 
 \paragraph*{역사적 고찰}\mbox{}
@@ -513,6 +557,14 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 \subsubsection{컨볼루션층}
 
 \paragraph*{컨볼루션 연산}\mbox{}
+
+\begin{equation} \tag{4.10}
+  s(i) = z \circledast u = \sum_{x=-(h - 1) / 2}^{(h - 1) / 2}z(i + x)u(x)
+\end{equation}
+
+\begin{equation} \tag{4.11}
+  s(i) = z \circledast u = \sum_{x=-(h - 1) / 2}^{(h - 1) / 2}\sum_{x = -(h - 1) / 2}^{(h - 1) / 2}z(j + y, i + x)(y, x)
+\end{equation}
 
 \vspace{3mm}
 
@@ -535,6 +587,29 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 \vspace{3mm}
 
 \subsubsection{폴링층}
+풀링의 종류
+\begin{itemize}
+  \item 최대 풀링
+  \item 평균 풀링
+  \item 가중치 평균 풀링
+  \item L2 놈 풀링
+\end{itemize}
+
+풀링의 이점
+\begin{itemize}
+  \item 요약 통계 추출로 성능 향상
+  \item 속도 향상
+  \item 메모리 효율 증가
+\end{itemize}
+
+풀링의 특성
+\begin{itemize}
+  \item 학습으로 알아내야 할 매개변수가 없다.
+  \item 특징 맵마다 독립적으로 풀링 연산을 적용하므로 특징 맵의 개수가 그대로 유지된다.
+  \item 작은 이동에 둔감해지게 한다. 커널의 크기를 키우면 더 둔감해진다.(물체 인식이나 영상 검색 등에 효과적이다.)
+\end{itemize}
+
+[Boureau2010]에서 최대 풀링과 평균 풀링을 비교하고 왜 성능 향상에 기여하는지 이론적으로 분석했다.
 
 \subsubsection{전체 구조}
 
@@ -590,7 +665,23 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 
 \subsubsection{교차 엔트로피 목적함수}
 
+\begin{equation} \tag{5.6}
+  e = -\sum_{i=1,c}(y_{i}\log_{2}o_{i} + (1 - y_{i}\log_{2}(1 - o_{i})))
+\end{equation}
+
 \subsubsection{softmax 활성함수와 로그우도 목적함수}
+
+softmax
+
+\begin{equation} \tag{5.7}
+  o_{j}= \frac{e^{s_{j}}}{\sum_{i=1,c}e^{s_{j}}}
+\end{equation}
+
+log likelihood
+
+\begin{equation} \tag{5.8}
+  e = -\log_{2}o_{y}
+\end{equation}
 
 \subsection{성능 향상을 위한 요령}
 
@@ -607,12 +698,20 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 
 그레이언트에 스무딩을 가하면 수렴 속도를 개선할 수 있다.
 
-\begin{equation} \tag{3.21}
+\begin{equation} \tag{5.12}
   \begin{rcases}
-    \boldsymbol{v} = a\boldsymbol{v} - \rho\displaystyle\frac{\partial\mathcal{J}}{\partial\Uptheta} \\
-    \Uptheta = \Uptheta + \boldsymbol{v};
+    \mathbf{v} = \alpha\mathbf{v} - \rho\displaystyle\frac{\partial J}{\partial\Uptheta} \\
+    \Uptheta = \Uptheta + \mathbf{v}
   \end{rcases}
 \end{equation}
+
+네스테로프 모멘텀
+
+\begin{align*} \tag{5.13}
+    \tilde{\Uptheta} &= \Uptheta + \alpha \mathbf{v} \\
+     \mathbf{v} &= \alpha \mathbf{v} - \rho \frac{\partial J}{\partial \Uptheta}\bigg|_{\tilde{\Uptheta}} \\
+    \Uptheta &= \Uptheta + \mathbf{v}
+\end{align*}
 
 
 \subsubsection{적응적 학습률}
@@ -622,6 +721,11 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 \vspace{3mm}
 
 \paragraph*{RMSProp}\mbox{}
+
+가중 이동 평균 기법
+\begin{equation} \tag{5.14}
+  \mathbf{r} = \alpha \mathbf{r} + (1 - \alpha)\mathbf{g} \odot \mathbf{g}
+\end{equation}
 
 \vspace{3mm}
 
@@ -648,6 +752,16 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 \vspace{3mm}
 
 \paragraph*{선형 회귀에 적용}\mbox{}
+
+선형 회귀
+\begin{equation} \tag{5.26}
+  J(\mathbf{w}) = \sum_{i=1}^{n}(\mathbf{x_{i}^{T}w} - y_{i})^{2} = \lVert \mathbf{Xw - y} \rVert_{2}^{2}
+\end{equation}
+
+리지 회귀
+\begin{equation} \tag{5.29}
+  \mathbf{\hat{w}} = (\mathbf{X^{T}X} + 2\lambda \mathbf{I})^{-1}\mathbf{X}^{T}\mathbf{y}
+\end{equation}
 
 \vspace{3mm}
 
@@ -785,8 +899,8 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 
 \begin{equation} \tag{6.19}
   \begin{rcases}
-    x_{i} - \mu \\
-    이때 \mu = \frac{1}{n}\sum_{i=1}^{n}x_[i]
+    x_{i} - \mu \qquad i = 1, 2, \cdots, n\\
+    \text{이때 } \mu = \displaystyle\frac{1}{n}\sum_{i=1}^{n}x_{i}
   \end{rcases}
 \end{equation}
 
@@ -1120,11 +1234,39 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \paragraph*{최적 정책 찾기}\mbox{}
 
+\begin{equation} \tag{9.7}
+  \hat{\pi} = \underset{\pi}{\mathrm{argmax}}\,goodness(\pi)
+\end{equation}
+
+서로 다른 정책의 집합을 정책 공간이라 한다.
+
 \vspace{3mm}
 
 \subsubsection{가치함수}
 
+가치함수는 특정 정책의 좋은 정도를 평가하는 함수이다.
+
+특정 정책에서 모든 상태의 좋은 정도를 평가한다.
+
+\begin{equation} \tag{9.8}
+  \hat{\pi} = \underset{\pi}{\mathrm{argmax}}\,v_{\pi}(s), \forall_{S} \in \mathcal{S}
+\end{equation}
+
+가치함수를 일반적인 수식으로 표현하면 식(9.9)이다.
+
+\begin{equation} \tag{9.9}
+  v_{\pi}(s) = \sum_{\text{s에서 출발하는 모든 경로 z}}P(z)\mathbbl{r}(z)
+\end{equation}
+
 \paragraph*{에피소드 과업과 영구 과업}\mbox{}
+
+유한 경로(episode task): $z:(s_{t},r_{t}) \xlongrightarrow{a_{t}} (s_{t+1}, r_{t+1}) \xlongrightarrow{a_{t+1}} (s_{t+2}, r_{t+2}) \xlongrightarrow{a_{t+2}} \cdots \xlongrightarrow{a_{T-1}} (s_{T}, r_{T})$
+
+무한 경로(continuing task): $z:(s_{t},r_{t}) \xlongrightarrow{a_{t}} (s_{t+1}, r_{t+1}) \xlongrightarrow{a_{t+1}} (s_{t+2}, r_{t+2}) \xlongrightarrow{a_{t+2}}  (s_{t+3}, r_{t+3}) \cdots$
+
+\begin{equation} \tag{9.11}
+  \mathbbl{r}(z) = r_{t+1} + \gamma r_{t+1} + \gamma_{2} r_{t+2} \cdots = \sum_{k=1}^{\infty}\gamma^{k-1}r_{t+k}
+\end{equation}
 
 \vspace{3mm}
 
@@ -1164,19 +1306,21 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \paragraph*{탐험형 시작}\mbox{}
 
+에피소드를 생성할 때 모든 상태-행동 쌍이 골고루 발생하도록 하는 방법을 탐험형 시작$^{\text{exploring starts}}$이라고 한다.
+주류에서 벗어난 상태-행동에 일정한 확률을 배정하여 선택될 가능성을 열어두는 것을 $\varepsilon$-소프트라고 한다.
+
 \vspace{3mm}
 
-\paragraph*{$\boldsymbol{\mathrm{\varepsilon}}$-소프트}\mbox{}
+\paragraph*{$\mathbf{\mathrm{\varepsilon}}$-소프트}\mbox{}
 
 \vspace{3mm}
 
 \paragraph*{몬테카를로 방법의 특성}\mbox{}
-
-몬테카를로 방법의 특징
 \begin{itemize}
   \item 환경 모델이 없어도 된다.
   \item 부트스트랩 방식이 아니므로 관심 있는 상태로만 구성된 부분집합에 국한하여 최적 가치와 최적 정책을 추정할 수 있다.
   \item 마르코프 성질에서 크게 벗어나는 상황에서도 성능 저하가 비교적 적다.
+  \item 동적 프로그래밍과 시간차 학습은 부트스트랩을 사용하지만, 몬테카를로 방법은 부트스트랩을 사용하지 않는다.
 \end{itemize}
 
 \vspace{3mm}
@@ -1184,6 +1328,29 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 \subsection{시간차 학습}
 
 \subsubsection{정책 평가}
+
+식 (9.21)에 $s_{t}$를 대입하면 다음과 같다.
+\begin{equation*}
+  v_{\pi}(s_{t}) = \frac{1}{Z(s_{t})}\sum_{z \in Z(s_t)}\mathbbl{r}(z)
+\end{equation*}
+
+샘플 $z_{t}$가 $k$번쨰로 추가되었다면, 이 식을 다음과 같이 쓸 수 있다.
+
+\begin{equation} \tag{9.23}
+  v_{\pi}(s_{t}) = v_{\pi}(s_{t}) + \rho(\mathbbl{r}_{new} - v_{pi}(s_{t}))
+\end{equation}
+
+식 (9.24)는 시간차 학습$^{\text{TD(temporal difference) learning}}$이 사용하는 식이다.
+
+\begin{equation} \tag{9.24}
+  v_{\pi}(s_{t}) = v_[\pi](s_{t}) + \rho((r_{t+1} + \gamma v_{\pi}(s_{t+1})) - v_{\pi}(s_{t}))
+\end{equation}
+
+상태-행동 가치함수를 추정하려면 식 (9.25)를 사용한다.
+
+\begin{equation} \tag{9.25}
+  q_{\pi}(s_{t}, a_{t}) = q_{\pi}(s_{t}, a_{t}) + \rho((r_{t+1} + \gamma q_{\pi}(s_{t+1}, a_{t+1})) - q_{\pi}(s_{t}, a_{t}))
+\end{equation}
 
 \paragraph*{정책 평가}\mbox{}
 
