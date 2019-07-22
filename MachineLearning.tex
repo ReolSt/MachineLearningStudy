@@ -212,7 +212,7 @@ $p = \infty$일 때의 놈을 최대 놈이라 부르고, 식(2.4)로 정의한�
 \vspace{3mm}
 \;가우시안 분포는 평균과 분산을 나타내는 2개의 매개변수 $\mu$와 $\sigma^{2}$으로 규정하며,
 식 (2.40)으로 정의한다. 정규분포라고도 하며 $\text{N}(x; \mu, \sigma^{2})$과 같이 표기한다. $\mu$에서 최대값을 가지고, $\sigma^{2}$는 분포의 퍼진 정도를 나타내는데,
-$\sigma^{2}$값이 클수록 봉우리의 높이가 낮고 좌우로 멀리 퍼진다. 자연에서 측정한 여러 가지 데이터가 가우시안 분포와 유사하다.
+$\sigma^{2}$값이 클수록 봉우리의 높이가 낮고 좌우로 멀리 퍼진다.
 
 \begin{equation} \tag{2.40}
   \text{N}(x; \mu, \sigma^{2}) = \frac{1}{\sigma\sqrt{2\pi}}\left(-\frac{1}{2}\left(\frac{x - \mu}{\sigma}\right)^{2}\right)
@@ -228,9 +228,42 @@ $|\mathbf{\Upsigma}|$은 $\mathbf{\Upsigma}$의 행렬식, 즉 $\text{det}(\math
 
 \paragraph*{베르누이 분포와 이항 분포}\mbox{}
 
+확률변수 $x$가 1 또는 0의 두가지 값만 가질 수 있는 이진변수이고, 성공확률은 $p$, 실패확률은 $1-p$인 분포를 베르누이 분포라고 한다. 매개변수는 $p$ 하나이다.
+\begin{equation} \tag{2.42}
+  Ber(x; p) = p^{x}(1 - p)^{1 - x} =
+  \begin{cases}
+    p,\;x = 1 \text{일 때} \\
+    1 - p,\;x = 0 \text{일 때}
+  \end{cases}
+\end{equation}
+
+성공확률이 $p$인 베르누이 실험을 $m$번 수행할 때 성공할 회수의 확률분포를 이항분포라고 한다.
+
+매개변수는 $p$와 $m$으로 2개이다.
+
+\begin{equation} \tag{2.43}
+  B(x; m, p) = C_{m}^{x}p^{x}(1 - p)^{m - x} = \frac{m!}{x!(m - x)!}p^{x}(1 - p)^{m - x}
+\end{equation}
+
 \subsubsection{정보이론}
 
 \paragraph*{자기 정보와 엔트로피}\mbox{}
+
+사건 $e_{i}$의 정보량 $h(e_{i})$를 자기 정보라 한다.
+
+\begin{equation} \tag{2.44}
+  h(e_{i}) = -\log_{2}P(e_{i}) \text{또는} h(e_{i}) = -\log_{e}P(e_{i})
+\end{equation}
+
+밑이 2면 단위는 bit이고, $e$면 나츠$^{\text{nat}}$이다.
+
+\begin{equation} \tag{2.45}
+  \text{이산확률분포} \quad H(x) = -\sum_{i=1, k}P(e_{i})\log_{2\,or\,e}P(e_{i})
+\end{equation}
+
+\begin{equation} \tag{2.46}
+  \text{연속확률분포} \quad -\int_{\mathds{R}}P(x)log_{2\,or\,e}P(e_{i})
+\end{equation}
 
 \paragraph*{교차 엔트로피와 KL 다이버전스}\mbox{}
 
@@ -297,6 +330,10 @@ KL 다이버전스는 두 확률분포가 얼마나 다른지 측정한다. 거�
 \vspace{3mm}
 
 \paragraph*{테일러 급수}\mbox{}
+
+\begin{equation} \tag{2.57}
+  f(x + \Delta) = f(x) + f^{'}(x)\Delta + \frac{f{''}(x)}{2}\Delta^{2} + \cdots + \frac{f^{(k)}(x)}{k!}\Delta^{k} + \cdots \approx f(x) + f{'}(x)\Delta
+\end{equation}
 
 \vspace{3mm}
 
