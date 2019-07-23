@@ -173,9 +173,21 @@ $p = \infty$일 때의 놈을 최대 놈이라 부르고, 식(2.4)로 정의한�
 
 \paragraph*{정부호 행렬}\mbox{}
 
+\begin{align*} \tag{2.18 + 2.19}
+  \text{양의 정부호 행렬: } 0 \text{이 아닌 모든 벡터} x\text{에 대해, } \mathbf{x}^{T}\mathbf{Ax} > 0 \\
+  \text{양의 준정부호 행렬: } 0 \text{이 아닌 모든 벡터} x\text{에 대해, } \mathbf{x}^{T}\mathbf{Ax} \ge 0 \\
+  \text{음의 정부호 행렬: } 0 \text{이 아닌 모든 벡터} x\text{에 대해, } \mathbf{x}^{T}\mathbf{Ax} < 0 \\
+  \text{음의 준정부호 행렬: } 0 \text{이 아닌 모든 벡터} x\text{에 대해, } \mathbf{x}^{T}\mathbf{Ax} \le 0 \\
+\end{align*}
+
 \subsubsection{행렬 분해}
 
 \paragraph*{고윳값과 고유 벡터}\mbox{}
+
+식 (2.20)을 만족하는 $\mathbf(0)$이 아닌 벡터 $\mathbf{v}$를 행렬 $\mathbf{A}$의 eigen vector 라고 하며 eigen vector에 대응하는 실수 $\lambda$를 eigen value라 한다.
+\begin{equation} \tag{2.20}
+  \mathbf{Av} = \lambda\mathbf{v}
+\end{equation}
 
 \paragraph*{고윳값 분해}\mbox{}
 
@@ -332,7 +344,7 @@ KL 다이버전스는 두 확률분포가 얼마나 다른지 측정한다. 거�
 \paragraph*{테일러 급수}\mbox{}
 
 \begin{equation} \tag{2.57}
-  f(x + \Delta) = f(x) + f^{'}(x)\Delta + \frac{f{''}(x)}{2}\Delta^{2} + \cdots + \frac{f^{(k)}(x)}{k!}\Delta^{k} + \cdots \approx f(x) + f{'}(x)\Delta
+  f(x + \Delta) = f(x) + f'(x)\Delta + \frac{f''(x)}{2}\Delta^{2} + \cdots + \frac{f^{(k)}(x)}{k!}\Delta^{k} + \cdots \approx f(x) + f'(x)\Delta
 \end{equation}
 
 \vspace{3mm}
@@ -357,6 +369,17 @@ KL 다이버전스는 두 확률분포가 얼마나 다른지 측정한다. 거�
 
 \subsubsection{동작}
 
+\begin{equation}
+  \begin{rcases}
+    y = \uptau(s) \\
+    \text{이때 } s = w_{0} + \sum_{i=1}^{d}w_{i}x_{i}, \qquad \uptau(s) = \
+    \begin{cases}
+      1 \quad s \ge 0 \\
+      -1 \quad s < 0
+    \end{cases}
+  \end{rcases}
+\end{equation}
+
 \paragraph*{행렬 표기}\mbox{}
 
 \vspace{3mm}
@@ -368,6 +391,14 @@ KL 다이버전스는 두 확률분포가 얼마나 다른지 측정한다. 거�
 \subsubsection{학습}
 
 \paragraph*{목적함수 설계와 델타 규칙 유도}\mbox{}
+
+\begin{equation} \tag{3.7}
+  J(\mathbf{w}) = \sum_{\mathbf{x}_{k} \in Y} -y_{k}(\mathbf{w}^{T}\mathbf{x}_{k})
+\end{equation}
+
+\begin{equation} \tag{3.9}
+  \text{델타 규칙: } w_{i} = w_{i} + \rho\sum_{\mathbf{x}_{k} \in Y}y_{k}x_{ki}, \qquad i = 0, 1, \cdots, d
+\end{equation}
 
 \vspace{3mm}
 
@@ -389,6 +420,10 @@ KL 다이버전스는 두 확률분포가 얼마나 다른지 측정한다. 거�
 
 \subsubsection{활성함수}
 
+Rectifier는 gradient 소멸 문제를 크게 완화하고, 속도 향상에 유용하다.
+
+Rectifier의 음수를 0으로 대치하는 문제를 해결하기 위한 여러 변종이 개발되어 있다.
+
 \subsubsection{구조}
 
 \paragraph*{병렬분산 구조}\mbox{}
@@ -396,6 +431,12 @@ KL 다이버전스는 두 확률분포가 얼마나 다른지 측정한다. 거�
 \vspace{3mm}
 
 \subsubsection{동작}
+
+행렬을 사용하면 2층 퍼셉트론의 동작을 식 (3.15)와 같이 간결하게 표기할 수 있다.
+
+\begin{equation} \tag{3.15}
+  \mathbf{o} = \uptau(\mathbf{U}^{2}\uptau_{h}(\mathbf{U}^{1}\mathbf{x}))
+\end{equation}
 
 \paragraph*{은닉층은 특징 추출기}\mbox{}
 
@@ -490,7 +531,7 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 \paragraph*{오류 역전파의 유도}\mbox{}
 
 \begin{equation} \tag{3.22}
-  \delta_{k} = (y_{k} - o_{k})\uptau^{'}(osum_{k}), \qquad 1 \le k \le c
+  \delta_{k} = (y_{k} - o_{k})\uptau'(osum_{k}), \qquad 1 \le k \le c
 \end{equation}
 
 \begin{equation} \tag{3.23}
@@ -498,7 +539,7 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 \end{equation}
 
 \begin{equation} \tag{3.24}
-  \upeta_{j} = \uptau^{'}(zsum_{j})\sum_{q=1}^{c}\delta_{qu_{qj}}^{2}, \qquad 1 \le j \le p
+  \upeta_{j} = \uptau'(zsum_{j})\sum_{q=1}^{c}\delta_{qu_{qj}}^{2}, \qquad 1 \le j \le p
 \end{equation}
 
 \begin{equation} \tag{3.25}
@@ -567,7 +608,7 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 \paragraph*{오류 역전파 알고리즘}\mbox{}
 $L$번째 층(출력층)을 위한 gradient 계산식
 \begin{equation} \tag{4.6}
-  \delta_{k}^{L} = \uptau_{L}^{'}(s_{k}^{L})(y_{k} - o_{k}), \qquad 1 \le k \le c
+  \delta_{k}^{L} = \uptau_{L}'(s_{k}^{L})(y_{k} - o_{k}), \qquad 1 \le k \le c
 \end{equation}
 
 \begin{equation} \tag{4.7}
@@ -577,7 +618,7 @@ $L$번째 층(출력층)을 위한 gradient 계산식
 $l + 1$층의 정보를 이용하여 $l$층의 gradient를 계산하는 공식
 
 \begin{equation} \tag{4.8}
-  \delta_{j}^{l} = \uptau_{l}^{'}(s_{j}^{l})\sum_{p=1}^{n_{l+1}}\delta_{p}^{l+1}u_{pj}^{l+1}, \qquad 1 \le j \le n_{l}
+  \delta_{j}^{l} = \uptau_{l}'(s_{j}^{l})\sum_{p=1}^{n_{l+1}}\delta_{p}^{l+1}u_{pj}^{l+1}, \qquad 1 \le j \le n_{l}
 \end{equation}
 
 \begin{equation} \tag{4.9}
@@ -783,6 +824,11 @@ log likelihood
 \subsection{규제 기법}
 
 \subsubsection{가중치 벌칙}
+규제 항 $R$은 훈련집합과는 무관하고, 가중치의 크기에 제약을 가한다.
+
+\begin{equation} \tag{5.20}
+  J_{regularized}(\Uptheta; \mathds{X}, \mathds{Y}) = J(\Uptheta; \mathds{X}, \mathds{Y}) + \lambda R(\Uptheta)
+\end{equation}
 
 \paragraph*{L2 놈}\mbox{}
 
@@ -812,7 +858,13 @@ log likelihood
 
 \subsubsection{조기 멈춤}
 
+참을성 인자
+
 \subsubsection{데이터 확대}
+
+데이터 확대$^{\text{data augmentation}}$는 잠재적인 변형을 프로그램으로 구현하여 샘플의 수를 강제로 늘리는 기법이다.
+
+이동, 회전, 크기 변환은 선형 변환으로서, 어파인 변환이라고도 한다.
 
 \subsubsection{드롭아웃}
 
@@ -1054,6 +1106,10 @@ PCA의 목적을 정보 손실을 최소화하면서 저차원으로 변환하�
 
 \paragraph*{최적화를 이용한 역투영}\mbox{}
 
+\begin{equation} \tag{7.5}
+  \mathbf{x}_{t+1} = r_{\Uptheta}(\mathbf{x}_{t} + \upeta\frac{\partial a_{i}(\mathbf{x})}{\partial \mathbf{x}})
+\end{equation}
+
 \vspace{3mm}
 
 \paragraph*{디컨볼루션을 이용한 역투영}\mbox{}
@@ -1061,6 +1117,10 @@ PCA의 목적을 정보 손실을 최소화하면서 저차원으로 변환하�
 \vspace{3mm}
 
 \subsection{준지도 학습}
+
+준지도 학습에서는 레이블이 없는 샘플로부터 정확한 정보를 가급적 많이 끄집어내 성능을 향상시키는 것이 주목적이다.
+
+준지도 학습은 표현 학습과 관련이 깊다.
 
 \subsubsection{동기와 원리}
 
@@ -1159,6 +1219,26 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \paragraph*{목적함수 정의}\mbox{}
 
+\begin{equation} \tag{8.10}
+  J(\Uptheta) = \sum_{t=1}^{T}J^{(t)}(\Uptheta)
+\end{equation}
+
+\begin{equation} \tag{8.11}
+  \text{평균제곱 오차: } J^{(t)}(\Uptheta) = \sum_{j=1}^{q}(y_{j}^{(t)} - y_{j}'^{(t)})^{2}
+\end{equation}
+
+\begin{equation} \tag{8.12}
+  \text{교차 엔트로피: } J^{(t)}(\Uptheta) = -\mathbf{y}^{(t)}\log\mathbf{y}'^{(t)} = -\sum_{j=1}^{q}y_{j}^{(t)}\log y_{j}'^{(y)}
+\end{equation}
+
+\begin{equation} \tag{8.13}
+  \text{로그 우도: } J^{(t)}(\Uptheta)= -\log y'^{(t)}
+\end{equation}
+
+\begin{equation} \tag{8.14}
+  \hat{\Uptheta} = \underset{\Uptheta}{\mathrm{argmin}}J(\Uptheta) = \underset{\Uptheta}{\mathrm{argmin}}\sum_{t=1}^{T}J^{(t)}(\Uptheta)
+\end{equation}
+
 \vspace{3mm}
 
 \paragraph*{그레이디언트 계산}\mbox{}
@@ -1173,7 +1253,14 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \subsection{장기 문맥 의존성}
 
+관련된 요소가 멀리 떨어져 있는 경우를 장기 의존성이라고 한다.
+
+RNN의 gradient 소멸 현상에 관한 논문[Pascanu2013]
+
 \subsection{LSTM}
+
+LSTM$^{\text{Long Short Term Memory}}$은 여러 종류의 게이트가 있어 입력을 선별적으로 허용하고 계산 결과를 선별적으로 출력할 수 있다[Hochreiter1997].
+GRU$^{\text{gated recurrent unit}}$는 성능 저하를 최소로 유지하면서 LSTM을 단순화한 모델이다[Chung2014].
 
 \subsubsection{게이트를 이용한 영향력 범위 확장}
 
@@ -1185,7 +1272,11 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \subsubsection{망각 게이트와 핍홀}
 
+핍홀은 메모리 블록의 내부 상태를 3개의 게이트에 알려 주는 역할을 한다.
+
 \subsection{응용 사례}
+
+순환 신경망은 주로 가변 길이의 패턴을 처리하는 데 활용된다.
 
 \subsubsection{언어 모델}
 
@@ -1209,29 +1300,50 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \subsubsection{영상 주석 생성}
 
+영상을 해석하고 결과를 문장으로 변환해 출력하는 응용 과업을 영상 주석 생성이라고 한다.
+
+CNN은 영상을 분석하고 인식하는데 적합하고 RNN은 언어 모델을 구축하여 문장을 생성하는 데 적합하므로 대부분 둘을 결합하여 사용한다.
+
+ImageNet으로 지도학습한 CNN에서 오른쪽 분류층을 떼고 마지막 컨볼루션층에 완전연결층을 붙이고 완전연결층의 출력은 RNN에 연결한다.
+
 % Chapter 9
 \newpage
 \section{강화 학습}
 
 \subsection{강화 학습의 원리와 성질}
 
+\subsubsection{계산 모형}
+
 \paragraph*{상태, 행동, 보상}\mbox{}
+
+\begin{align*} \tag{9.1}
+  \text{강화 학습의 핵심 연산 } f:(s_{t}, a_{t}) \rightarrow (s_{t+1}, r_{t+1}) \\
+  \mathrm{where}\, s = \text{상태}, a = \text{행동}, r = \text{보상}
+\end{align*}
 
 \vspace{3mm}
 
 \paragraph*{에이전트와 환경}\mbox{}
 
+MDP는 문제를 정의할 때 따라 주어지는 정보이다.
+
 \vspace{3mm}
 
 \paragraph*{정책}\mbox{}
 
-\vspace{3mm}
+에이전트는 일정한 확률 규칙으로 행동을 결정해야 하는데, 이 규칙을 정책이라 한다.
 
-\subsubsection{계산 모형}
+\vspace{3mm}
 
 \subsubsection{탐험과 탐사}
 
+최적화 문제를 풀 때 탐험과 탐사 갈등이 발생한다.
+
+탐험은 전체 공간을 골고루 찾아보는 전략이고, 탐사는 특정한 곳 주위를 집중적으로 찾아보는 전략이다. 탐험은 시간이 너무 오래 걸리고, 탐험은 더 좋은 해를 놓치고 지역 최적점에 머무는 문제가 있다.
+
 \subsubsection{마르코프 결정 프로세스}
+
+강화 학습에서 가장 중요한 연산은 어떤 상태에서 가장 유리한 행동을 선택하는 것이다.
 
 \paragraph*{마르코프 성질}\mbox{}
 
@@ -1246,7 +1358,7 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 표기를 간단히 하면 다음과 같다.
 
 \begin{equation} \tag{9.3}
-  P(s_{t+1}, r_{t+1} \mid s_{t}, a_{t}) = P(s^{'}, r \mid s, a)
+  P(s_{t+1}, r_{t+1} \mid s_{t}, a_{t}) = P(s', r \mid s, a)
 \end{equation}
 
 \vspace{3mm}
@@ -1254,7 +1366,7 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 \paragraph*{환경 모델로서 MDP}\mbox{}
 
 \begin{equation} \tag{9.4}
-  \text{MDP 확률분포: } P(s^{'},r \mid s, a), \forall \in \mathcal{S}, \forall a \in \mathcal{A}, \forall s^{'} \in \mathcal{S}, \forall \in \mathcal{R}
+  \text{MDP 확률분포: } P(s',r \mid s, a), \forall \in \mathcal{S}, \forall a \in \mathcal{A}, \forall s' \in \mathcal{S}, \forall \in \mathcal{R}
 \end{equation}
 
 식 (9.4)를 MDP의 확률분포라고 한다. 이 확률분포는 Markov property를 만족한다.
@@ -1263,7 +1375,17 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \subsection{정책과 가치함수}
 
+강화 학습의 핵심은  좋은 정책을 찾아내는 것이다.
+
+정책 공간이 너무 방대하여 최적 정책을 직접 찾는 접근방법은 무모하다.
+
 \subsubsection{정책}
+
+정책이란 상태 $s$에서 행동 $a$를 취할 확률을 모든 상태와 행동에 대해 명시한 것을 말한다.
+
+\begin{equation} \tag{9.5}
+  \pi(a \vert s) = P(a \vert s), \forall s, \forall a
+\end{equation}
 
 \paragraph*{최적 정책}\mbox{}
 
@@ -1275,15 +1397,23 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
   \hat{\pi} = \underset{\pi}{\mathrm{argmax}}\,goodness(\pi)
 \end{equation}
 
-서로 다른 정책의 집합을 정책 공간이라 한다.
+서로 다른 정책의 집합을 정책 공간이라 하고, 상태 공간보다 훨씬 방대하다.
+
+exhaustive search는 적용할 수 없다.
+
+정책 공간을 직접 탐색하는 대신 최적 가치함수를 탐색한다.
 
 \vspace{3mm}
 
 \subsubsection{가치함수}
 
-가치함수는 특정 정책의 좋은 정도를 평가하는 함수이다.
+가치함수는 특정 정책의 goodness를 평가하는 함수이다.
 
-특정 정책에서 모든 상태의 좋은 정도를 평가한다.
+특정 정책에서 모든 상태의 goodness를 평가한다.
+
+goodness는 상태 $s$로부터 종료 상태에 이르기까지 누적 보상의 추정치이다.
+
+식 9.7을 좀 더 구체적으로 쓰면 식 (9.8)이 된다.
 
 \begin{equation} \tag{9.8}
   \hat{\pi} = \underset{\pi}{\mathrm{argmax}}\,v_{\pi}(s), \forall_{S} \in \mathcal{S}
@@ -1309,13 +1439,49 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \paragraph*{가치함수 추정을 위한 순환식}\mbox{}
 
+\begin{equation} \tag{9.12}
+  v_{\pi}(s) = \sum_{a \in \mathcal(A)(s)}P(a \vert s)(r + v_{\pi}(s')), \forall_{S} \in \mathcal(S)
+\end{equation}
+
 \vspace{3mm}
 
 \paragraph*{스토캐스틱 프로세스에서 가치함수 추정}\mbox{}
 
+스토캐스틱 프로세스에서는 식 (9.12)보다 복잡한 수식을 사용해야 한다.
+
+\begin{equation} \tag{9.12}
+  \sum_{a \in \mathcal{A}} P(a \vert s)\sum_{s'}\sum_{r}P(s', r \vert s, a)(r + v_{\pi}(s')), \forall_{S} \in \mathcal{S}
+\end{equation}
+
+무한 경로를 가진 문제라면 할인율을 적용한 식 (9.14)를 사용한다.
+
+\begin{equation} \tag{9.14}
+  v_{\pi}(s) = \sum_{a \in \mathcal{A}(s)}P(a \vert s)\sum_{s'}\sum_{r}P(s', r \vert s, a)(r + \gamma v_{\pi}(s')), \forall_{S} \in \mathcal{S}
+\end{equation}
+
+식 (9.13)과 식 (9.14)는 상태 가치함수라 하고, 식 (9.15)는 상태-행동 가치함수라 한다.
+
+\begin{equation} \tag{9.15}
+  q_{\pi}(s, a) = \sum_{s'}\sum_{r}P(s', r \vert s, a)(r + \gamma v_{\pi}(s')), \forall_{S} \in \mathcal{S}, \forall_{a} \in \mathcal{A}
+\end{equation}
+
 \vspace{3mm}
 
 \subsubsection{최적 가치함수}
+
+식 (9.16)은 최적 가치함수를 정의한다.
+
+식 (9.17)은 최적 가치함수를 추정하는 방법이다.
+
+\begin{equation} \tag{9.17}
+  \hat{v}(s) = \underset{a \in \mathcal{A}(s)}{\mathrm{max}}\sum_{s'}\sum_{r}P(s', r \vert s, a)(r + \hat{v}(s')), \forall_{S} \in \mathcal{S}
+\end{equation}
+
+식 (9.18)은 무한 경로를 위해 할인율을 적용한 수식이다.
+
+\begin{equation} \tag{9.18}
+  \hat{v}(s) = \underset{a \in \mathcal{A}(s)}{\mathrm{max}}\sum_{s'}\sum_{r}P(s', r \vert s, a)(r + \gamma \hat{v}(s')), \forall_{S} \in \mathcal{S}
+\end{equation}
 
 \subsection{동적 프로그래밍}
 
@@ -1327,9 +1493,19 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \subsubsection{가치 반복 알고리즘}
 
+다른 상태의 값을 보고 자신의 값을 갱신하는 방식을 부트스트랩 이라고 한다.
+
+부트스트랩 방식에서는 모든 상태가 이전 값을 이용하여 현재 값을 계산해야 공평하지만, 제자리 연산으로 구현하면 수렴 속도가 빨라지는 장점이 있다.
+
+동적 프로그래밍은 상태와 행동의 개수가 적은 경우에만 사용한다.
+
 \subsection{몬테카를로 방법}
 
 \subsubsection{훈련집합의 수집과 정책 평가}
+
+\begin{equation} \tag{9.20}
+  e = [s_{0}, r_{0}]a_{0}[s_{1}, r_{1}]a_{1}[s_{2}, r_{2}]a_{2} \cdots [s_{t}, r_{t}]a_{t} \cdots [s_{T}, r_{T}]
+\end{equation}
 
 \paragraph*{정책 평가}\mbox{}
 
@@ -1397,7 +1573,15 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \subsubsection{Q-학습}
 
+\begin{equation} \tag{9.26}
+  q_{\pi}(s_{t}, a_{t}) + \rho((r_{t+1} + \underset{a}{\mathrm{max}}q_{\pi}(s_{t+1}, a)) - q_{\pi}(s_{t}, a_{t}))
+\end{equation}
+
 \subsection{근사 방법}
+
+lookup table
+
+현재 강화 학습은 근사 방법보다 신경망을 주로 사용한다.
 
 \subsection{응용 사례}
 
@@ -1441,6 +1625,9 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \paragraph*{d-분리}\mbox{}
 
+베이지안 네트워크는 선형, 분기, 합류의 세 가지 연결 패턴으로 구성된다.
+이들의 특성과 동작을 잘 분석하면 복잡한 그래프에서의 조건부 독립을 알아낼 수 있다.
+
 \vspace{3mm}
 
 \subsubsection{확률 추론}
@@ -1459,6 +1646,8 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 
 \subsection{마르코프 랜덤필드}
 
+이름에 마르코프가 붙은 이유는 이웃한 노드 사이에만 직접적인 상호작용을 허용하기 때문이다. 확률변수들이 동일한 자격으로 영향을 주고받으면서 필드를 형성하므로 랜덤필드이다.
+
 \subsubsection{동작 원리}
 
 모든 노드 쌍이 에지를 가지는 완전 부분그래프를 클릭$^{\text{clique}}$이라고 한다. 노드를 추가하면 완전 그래프를 유지하지 못하는 클릭을 극대 클릭$^{\text{maximal clique}}$이라고 한다.
@@ -1469,6 +1658,8 @@ RNN은 순환 에지를 가짐으로서 시간성, 가변 길이, 문맥 의존�
 DBN$^\text{deep belief network}$
 
 \subsubsection{사례 연구: 영상 잡음 제거}
+
+마르코프 랜덤필드는 주로 영상처리와 컴퓨터비전에서 잡음 제거, 영상 복원, 에지 검출, 텍스쳐 분석, 스테레오 비전, 영상 분할 등의 문제를 풀 때 활용한다.[Li2009, Blake2011].
 
 \paragraph*{에너지함수 공식화}\mbox{}
 
@@ -1530,6 +1721,8 @@ DBN$^\text{deep belief network}$
   인 변환함수 $\Upphi$가 존재하면 $K(x, z)$를 커널함수라 부른다.
 \end{mdframed}
 
+커널 트릭이란 $\Upphi(x)$로 변환한 $\mathcal{H}$공간에서 내적 연산을 원래 특징 공간 $\mathcal{L}$에서 커널함수 계산으로 대치하는 것이다. 다시 말해 특징 벡터를 명시적으로 $\mathcal{H}$로 매핑하지 않고 커널함수를 이용하여 $\mathcal{H}$공간의 내적을 얻는다.
+
 \paragraph*{널리 쓰이는 세 가지 커널함수}\mbox{}
 
 \begin{equation} \tag{11.6}
@@ -1544,6 +1737,8 @@ DBN$^\text{deep belief network}$
   \text{하이퍼볼릭 탄젠트 커널: } K(x, z) = \tanh(ax \cdot z + \beta)
 \end{equation}
 
+어떤 함수 K가 커널함수인지를 확인할 때에는 Mercer 정리를 사용한다[Burges1998].
+
 \vspace{3mm}
 
 \subsection{커널 리지 회귀}
@@ -1553,6 +1748,8 @@ DBN$^\text{deep belief network}$
 \vspace{3mm}
 
 \paragraph*{메모리 기반 예측}\mbox{}
+
+커널 트릭은 메모리 기반 접근방법이다.
 
 \vspace{3mm}
 
@@ -1566,7 +1763,26 @@ DBN$^\text{deep belief network}$
 
 \subsubsection{선형 SVM}
 
+이진 선형 분류기의 결정 초평면은 식 (11.23)으로 표현할 수 있다.
+
+\begin{equation} \tag{11.23}
+  d(\mathbf{x}) =  w_{1}x_{1} + w_{2}x_{2} + \cdots + w_{d}x_{d} + b = \mathbf{w}^{T}\mathbf{x} + b = 0
+\end{equation}
+
 \paragraph*{결정 초평면의 수학적 특성}\mbox{}
+
+식 (11.23)은 SVM 수식을 유도하는 데 도움이 되는 몇 가지 수학적 특성이 있다.
+
+\begin{itemize}
+  \item d(x) = 0은 특징 공간을 부분 공간 2개로 분할한다.
+  \item 식 (11.23)에 상수 $c$를 곱한 $c\mathbf{w}^{T}\mathbf{x} + cb = 0$도 동일한 초평면이다.
+  \item $\mathbf{w}$는 초평면에 수직인 법선벡터이고 바이어스 $b$는 초평면의 위치를 지정한다.
+  \item 점 $\mathbf{x}$에서 초평면까지 거리는 식 (11.24)로 구한다.
+\end{itemize}
+
+\begin{equation} \tag{11.24}
+  h = \frac{\lvert d(\mathbf{x}) \rvert}{\lVert \mathbf{w} \rVert}_{2}
+\end{equation}
 
 \vspace{3mm}
 
@@ -1606,6 +1822,14 @@ DBN$^\text{deep belief network}$
 
 \subsubsection{앙상블을 사용하는 이유}
 
+\begin{itemize}
+  \item 나쁜 운을 피할 수 있다.
+  \item 성능 향상을 꾀할 수 있다.
+  \item 데이터 양/질에 따른 어려움을 극복할 수 있다.
+  \item 다중 센서 시스템에 효과적이다.
+  \item 점진 학습이 가능하다.
+\end{itemize}
+
 \subsubsection{요소 분류기의 다양성}
 
 \subsection{재샘플링 기법}
@@ -1622,6 +1846,8 @@ DBN$^\text{deep belief network}$
 
 \paragraph*{노드에서의 질문}\mbox{}
 
+결정 트리는 자식이 최대 2개인 이진 트리를 사용한다.
+
 \vspace{3mm}
 
 \paragraph*{학습 알고리즘}\mbox{}
@@ -1633,6 +1859,11 @@ DBN$^\text{deep belief network}$
 \vspace{3mm}
 
 \subsubsection{랜덤 포리스트}
+
+결정 트리는 신경망이나 SVM등과 같은 다른 모델에 비해 정확도가 낮다.
+따라서 단독으로 쓰기보다 앙상블의 요소 분류기로 많이 쓰인다.
+
+랜덤 포리스트는 결정 트리를 배깅으로 결합한 것인데, 가장 널리 활용되는 결정 트리의 앙상블 모델이다. 튜토리얼 논문[Breiman2001, Criminisi2011]
 
 \subsection{앙상블 결합}
 
