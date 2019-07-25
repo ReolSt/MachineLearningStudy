@@ -189,9 +189,33 @@ $p = \infty$일 때의 놈을 최대 놈이라 부르고, 식(2.4)로 정의한�
   \mathbf{Av} = \lambda\mathbf{v}
 \end{equation}
 
+모든 고유 벡터는 서로 직교이다.
+
 \paragraph*{고윳값 분해}\mbox{}
 
+eigen value decomposition은 행렬 $A$를 식 (2.21)과 같이 분해한다.
+
+\begin{equation} \tag{2.21}
+  \mathbf{A = Q \Lambda Q}
+\end{equation}
+
+$\Lambda$는 교윳값을 대각선에 배치한 대각행렬이고, $Q$는 행 벡터나 열 벡터가 서로 직교인 직교행렬이다.
+
+EVD는 정사각행렬이 아니면 적용할 수 없다. 정사각행렬이 아닌 경우에는 SVD가 쓰인다.
+
 \paragraph*{특잇값 분해}\mbox{}
+
+SVD는 어떤 행렬이든 적용할 수 있다.
+
+\begin{equation} \tag{2.22}
+  \mathbf{A = U \Sigma V^{T}}
+\end{equation}
+
+$U$는 $\mathbf{AA}^{T}$의 고유 벡터를 열에 배치한 $n*n$ 크기의 왼쪽 특이 행렬이다.
+
+$V$는 $\mathbf{AA}^{T}$의 고유 벡터를 열에 배치한 $m*m$ 크기의 오른쪽 특이 행렬이다.
+
+$\Sigma$는 $\mathbf{AA}^{T}$의 고윳값의 제곱근을 대각선에 배치한 $n*m$크기의 대각행렬이다.
 
 \subsection{확률과 통계}
 
@@ -530,6 +554,16 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 
 \paragraph*{오류 역전파의 유도}\mbox{}
 
+\begin{align*}
+  \frac{\partial J}{\partial u_{kj}^{2}} &= \frac{\partial(0.5 \lVert \mathbf{y} - \mathbf{o}(\mathbf{U}^{1}, \mathbf{U}^{2}) \rVert_{2}^{2})}{\partial u_{kj}^{2}} \\
+  &= \frac{\partial(0.5\sum_{q=1}^{c}(y_{q} - o_{q})^{2})}{\partial u_{kj}^{2}} \\
+  &= \frac{\partial(0.5(y_{k} - o_{k})^{2})}{\partial u_{kj}^{2}} \\
+  &= -(y_{k} - o_{k})\frac{\partial o_{k}}{\partial u_{kj}^{2}} \\
+  &= -(y_{k} - o_{k})\frac{\partial\uptau(osum_{k})}{\partial u_{kj}^{2}} \\
+  &= -(y_{k} - o_{k})\uptau'(osum_{k})\frac{\partial osum_{k}}{\partial u_{kj}^{2}} \\
+  &= -(y_{k} - o_{k})\uptau'(osum_{k})z_{j}
+\end{align*}
+
 \begin{equation} \tag{3.22}
   \delta_{k} = (y_{k} - o_{k})\uptau'(osum_{k}), \qquad 1 \le k \le c
 \end{equation}
@@ -563,9 +597,15 @@ $X$와 $Y$는 각각 $n*d$와 $n*c$ 행렬이다. $n$은 샘플의 개수,  $d$�
 
 \subsection{다층 퍼셉트론에 의한 인식}
 
+\begin{equation} \tag{3.26}
+  y = \underset{k}{argmax}o_{k} (\text{평균적인 복잡도})
+\end{equation}
+
 \subsection{다층 퍼셉트론의 특성}
 
 \subsubsection{오류 역전파 알고리즘의 빠른 속도}
+
+학습 알고리즘의 시간 복잡도: $\Uptheta((dp + pc)nq)$
 
 \subsubsection{모든 함수를 정확하게 근사할 수 있는 능력}
 
@@ -701,6 +741,8 @@ $l + 1$층의 정보를 이용하여 $l$층의 gradient를 계산하는 공식
 
 \paragraph*{가변 크기의 데이터 다루기}\mbox{}
 
+CNN은 DMLP와 달리 가변 크기의 입력을 다룰 수 있다는 장점이 있다.
+
 \vspace{3mm}
 
 \subsection{컨볼루션 신경망 사례연구}
@@ -813,7 +855,23 @@ log likelihood
 
 \subsubsection{활성함수}
 
+\begin{align*} \tag{5.15}
+  z &= \mathbf{w}^{T}\tilde{\mathbf{x}} + b \\
+  y &= \uptau(z)
+\end{align*}
+
+tanh는 전 구간에서 미분할 수 있는 장점이 있지만, 값이 커질수록 미분값이 0에 근접하여 학습에 지장을 준다.
+
+\begin{equation} \tag{5.17}
+  \mathrm{leakyReLU}(z) =
+  \begin{cases}
+    z, \quad z \ge 0 \\
+    az, \quad z < 0
+  \end{cases}
+\end{equation}
 \subsubsection{배치 정규화}
+
+학습 도중에 샘플의 분포가 바뀌는 현상을 covariate shift라 한다.
 
 \subsection{규제의 필요성과 원리}
 
@@ -922,6 +980,10 @@ log likelihood
 \subsubsection{비지도 학습의 응용 과업}
 
 \subsection{군집화}
+
+한 샘플이 하나의 군집에 속하도록 강제하는 방식을 hard clustering이라 하고, 샘플이 군집마다 속하는 정도를 다르게 하는 방식을 soft clustering이라 한다.
+
+군집화를 부류 발견 작업이라 한다.
 
 \subsubsection{k-평균 알고리즘}
 
@@ -1509,6 +1571,14 @@ goodness는 상태 $s$로부터 종료 상태에 이르기까지 누적 보상�
 
 \paragraph*{정책 평가}\mbox{}
 
+\begin{equation} \tag{9.21}
+  v_{\pi}(s) = \frac{1}{\vert Z(s) \vert}\sum_{z \in Z(s)}\mathbbl{r}(z),\, \forall_{S} \in \mathcal{S}
+\end{equation}
+
+\begin{equation} \tag{9.22}
+  q_{\pi}(s, a) = \frac{1}{\vert Z(s, a) \vert}\sum_{z \in Z(s,a)}\mathbbl{r}(z),\, \forall_{S} \in \mathcal{S},\, \forall_{a} \in \mathcal{A}
+\end{equation}
+
 \vspace{3mm}
 
 \subsubsection{최적 정책 탐색}
@@ -1519,7 +1589,7 @@ goodness는 상태 $s$로부터 종료 상태에 이르기까지 누적 보상�
 
 \paragraph*{탐험형 시작}\mbox{}
 
-에피소드를 생성할 때 모든 상태-행동 쌍이 골고루 발생하도록 하는 방법을 탐험형 시작$^{\text{exploring starts}}$이라고 한다.
+에피소드를 생성할 때 모든 상태-행동 쌍이 골고루 발생하도록 하는 방법을 탐험형 시작이라 한다.
 주류에서 벗어난 상태-행동에 일정한 확률을 배정하여 선택될 가능성을 열어두는 것을 $\varepsilon$-소프트라고 한다.
 
 \vspace{3mm}
